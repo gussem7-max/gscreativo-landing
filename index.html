@@ -19,8 +19,24 @@
       }
     }
   </script>
+  <style>
+    /* Animación de entrada suave para el scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Retardo para que las tarjetas entren en cascada */
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+  </style>
 </head>
-<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between">
+<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
 
   <!-- Header / Navbar -->
   <header class="w-full border-b border-slate-800/80 backdrop-blur-md bg-darkbg/80 fixed top-0 z-50">
@@ -42,85 +58,80 @@
     </div>
   </header>
 
-  <!-- Hero Section con Terminal Animada -->
-  <section class="flex-grow flex items-center justify-center pt-36 pb-20 px-6">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <!-- Hero Section Centrado con Fondo con Luz de neón y Subtítulo Mecanografiado -->
+  <section class="relative flex-grow flex items-center justify-center pt-36 pb-24 px-6 overflow-hidden">
+    <!-- Luces de Fondo (Glow Effect) -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
       
-      <!-- Columna Izquierda: Textos y CTAs -->
-      <div class="text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-6">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Disponible para nuevos proyectos web
-        </div>
-
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-          Desarrollo web con <br>
-          <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
-        </h1>
-
-        <p class="text-base sm:text-lg text-slate-400 mb-8 leading-relaxed">
-          Especialista en arquitecturas robustas, integraciones a medida y plataformas optimizadas para maximizar rendimiento.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-          <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20 text-center">
-            Iniciar Proyecto
-          </a>
-          <a href="#portafolio" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-center">
-            Ver Trabajos
-          </a>
-        </div>
+      <!-- Badge de disponibilidad -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8 backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Disponible para nuevos proyectos web
       </div>
 
-      <!-- Columna Derecha: Consola / Terminal con Efecto de Escritura -->
-      <div class="w-full rounded-2xl bg-cardbg border border-slate-800 shadow-2xl overflow-hidden font-mono text-sm">
-        <!-- Barra superior de la terminal -->
-        <div class="bg-slate-900/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-          </div>
-          <span class="text-xs text-slate-500">gscreativo-terminal ~ bash</span>
-        </div>
-        <!-- Cuerpo de código con efecto máquina de escribir -->
-        <div class="p-6 text-slate-300 space-y-3 min-h-[220px]">
-          <p class="text-slate-500">// Inicializando arquitectura...</p>
-          <p class="text-purple-400">$ npx gscreativo-cli init</p>
-          <p class="text-slate-300">> Configurando stack moderno...</p>
-          <p class="text-emerald-400" id="typing-text"></p><span class="animate-pulse text-purple-400">▋</span>
-        </div>
+      <!-- Título principal -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+        Desarrollo web con <br>
+        <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
+      </h1>
+
+      <!-- Subtítulo con Efecto Máquina de Escribir -->
+      <div class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed min-h-[60px] flex items-center justify-center">
+        <p><span id="typing-text" class="text-slate-200 font-medium"></span><span class="animate-pulse text-purple-400 font-bold">|</span></p>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
+          Iniciar Proyecto
+        </a>
+        <a href="#portafolio" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all">
+          Ver Trabajos
+        </a>
       </div>
 
     </div>
   </section>
 
   <!-- Servicios / Bento Grid Section -->
-  <section id="servicios" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/40">
+  <section id="servicios" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/40 relative">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
+      
+      <div class="text-center mb-16 reveal">
         <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Especialidades</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-white">Soluciones Digitales a Medida</p>
       </div>
 
+      <!-- Bento Grid con Entrada en Cascada -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
+        
+        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-purple-500/50 transition-all duration-300 shadow-xl group reveal delay-100 hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
           <h3 class="text-xl font-bold text-white mb-3">WordPress & WooCommerce</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Implementaciones personalizadas, maquetación avanzada y optimización extrema de rendimiento.</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Implementaciones personalizadas, maquetación avanzada y optimización extrema de rendimiento.
+          </p>
         </div>
 
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
+        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-red-500/50 transition-all duration-300 shadow-xl group reveal delay-200 hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl mb-6 group-hover:scale-110 transition-transform">💻</div>
           <h3 class="text-xl font-bold text-white mb-3">Desarrollo Full-Stack</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Sistemas web dinámicos con Node.js, Express, bases de datos y frontend responsivo.</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Sistemas web dinámicos con Node.js, Express, bases de datos y frontend responsivo.
+          </p>
         </div>
 
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
+        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-yellow-500/50 transition-all duration-300 shadow-xl group reveal delay-300 hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 transition-transform">🎓</div>
           <h3 class="text-xl font-bold text-white mb-3">Plataformas LMS & EduControl</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Plataformas educativas integradas con LearnDash y gestión avanzada de usuarios.</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Plataformas educativas integradas con LearnDash y gestión avanzada de roles de usuario.
+          </p>
         </div>
+
       </div>
     </div>
   </section>
@@ -128,13 +139,15 @@
   <!-- Portafolio / Proyectos -->
   <section id="portafolio" class="py-20 px-6 border-t border-slate-800/60">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
+      
+      <div class="text-center mb-16 reveal">
         <h2 class="text-xs font-bold uppercase tracking-widest text-red-400 mb-3">Casos de Éxito</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-white">Proyectos Recientes</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group">
+        
+        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-purple-500/40 transition-all duration-300 group reveal delay-100 hover:-translate-y-1">
           <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
             <span class="text-4xl font-black text-slate-700 group-hover:text-purple-400 transition-colors">PROJECT #1</span>
           </div>
@@ -145,7 +158,7 @@
           </div>
         </div>
 
-        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group">
+        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-red-500/40 transition-all duration-300 group reveal delay-200 hover:-translate-y-1">
           <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
             <span class="text-4xl font-black text-slate-700 group-hover:text-red-400 transition-colors">PROJECT #2</span>
           </div>
@@ -155,12 +168,13 @@
             <span class="inline-block bg-slate-900 border border-slate-800 text-xs text-slate-300 px-3 py-1 rounded-full">Node.js & Express</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Contacto -->
-  <section id="contacto" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/60">
+  <section id="contacto" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/60 reveal">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">¿Tienes un proyecto en mente?</h2>
       <p class="text-slate-400 mb-10 text-lg">Transformemos tu idea en un producto web funcional y atractivo.</p>
@@ -190,41 +204,58 @@
     <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Script para el efecto de máquina de escribir -->
+  <!-- Scripts para Animaciones JS -->
   <script>
+    // 1. Script para el Subtítulo de Máquina de Escribir
     const phrases = [
-      "Optimizing performance: 100%...",
-      "Deploying to Vercel production...",
-      "Building high-level web solutions...",
-      "Ready for next project code..."
+      "Creamos experiencias digitales rápidas, modernas y optimizadas.",
+      "Especialistas en arquitecturas robustas en Node.js y WordPress.",
+      "Desarrollamos soluciones a medida para hacer crecer tu negocio."
     ];
-    let currentPhrase = 0;
-    let currentChar = 0;
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
     const typingElement = document.getElementById("typing-text");
 
     function typeEffect() {
-      if (currentChar < phrases[currentPhrase].length) {
-        typingElement.textContent += phrases[currentPhrase].charAt(currentChar);
-        currentChar++;
-        setTimeout(typeEffect, 50);
-      } else {
-        setTimeout(eraseEffect, 2000);
-      }
-    }
+      const currentPhrase = phrases[phraseIndex];
 
-    function eraseEffect() {
-      if (currentChar > 0) {
-        typingElement.textContent = phrases[currentPhrase].substring(0, currentChar - 1);
-        currentChar--;
-        setTimeout(eraseEffect, 30);
+      if (isDeleting) {
+        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
       } else {
-        currentPhrase = (currentPhrase + 1) % phrases.length;
-        setTimeout(typeEffect, 500);
+        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
       }
+
+      let speed = isDeleting ? 30 : 50;
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        speed = 2500; // Pausa cuando termina de escribir la frase
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        speed = 500;
+      }
+
+      setTimeout(typeEffect, speed);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(typeEffect, 1000);
+      setTimeout(typeEffect, 800);
+      
+      // 2. Script IntersectionObserver para las Entradas al Scroll (Scroll Reveal)
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach((el) => observer.observe(el));
     });
   </script>
 
