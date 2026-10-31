@@ -57,10 +57,9 @@
     </div>
   </header>
 
-  <!-- Hero Section Centrado con Fondo Resplandeciente Visible -->
+  <!-- Hero Section Centrado -->
   <section class="relative flex-grow flex items-center justify-center pt-36 pb-24 px-6 overflow-hidden">
-    
-    <!-- Luces e iluminación de fondo súper visibles -->
+    <!-- Luces e iluminación de fondo -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[140px] pointer-events-none"></div>
     <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-red-500/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-10 right-1/4 w-[350px] h-[350px] bg-yellow-500/15 rounded-full blur-[100px] pointer-events-none"></div>
@@ -73,13 +72,13 @@
         Disponible para nuevos proyectos web
       </div>
 
-      <!-- Título principal en degradado -->
+      <!-- Título principal -->
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
         Desarrollo web con <br>
         <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
       </h1>
 
-      <!-- Subtítulo con Efecto de Código / Sintaxis de Programación -->
+      <!-- Subtítulo con Sintaxis de Código -->
       <div class="max-w-2xl mx-auto mb-10 p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 font-mono text-sm sm:text-base text-left shadow-2xl backdrop-blur-md min-h-[70px] flex items-center">
         <div class="w-full">
           <span class="text-purple-400">const</span> <span class="text-yellow-300">stack</span> <span class="text-red-400">=</span> <span class="text-slate-400">[</span><span id="hero-typing-text" class="text-emerald-400"></span><span class="animate-pulse text-purple-400 font-bold">|</span><span class="text-slate-400">];</span>
@@ -99,7 +98,7 @@
     </div>
   </section>
 
-  <!-- Servicios / Bento Grid Section -->
+  <!-- Servicios / Bento Grid (3 Tarjetas Consistencia Code/Terminal) -->
   <section id="servicios" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/40 relative">
     <div class="max-w-6xl mx-auto">
       
@@ -110,10 +109,9 @@
         </p>
       </div>
 
-      <!-- Bento Grid con Tarjeta Terminal (Botones rojo, amarillo, verde) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Tarjeta estilo Terminal Mac (Rojo, Amarillo, Verde) -->
+        <!-- Tarjeta 1: WordPress & WooCommerce -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 hover:border-purple-500/50 transition-all duration-300 shadow-xl overflow-hidden reveal delay-100 hover:-translate-y-1 flex flex-col justify-between">
           <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -124,8 +122,8 @@
             <span class="text-[10px] font-mono text-slate-500">wordpress.config.js</span>
           </div>
           <div class="p-6 font-mono text-xs text-slate-300 space-y-2">
-            <p class="text-slate-500">// WooCommerce & Elementor</p>
-            <p><span class="text-purple-400">import</span> { Performance } <span class="text-purple-400">from</span> <span class="text-emerald-400">'@gscreativo'</span>;</p>
+            <p class="text-slate-500">// WooCommerce & Custom Themes</p>
+            <p><span class="text-purple-400">import</span> { Speed } <span class="text-purple-400">from</span> <span class="text-emerald-400">'@gscreativo'</span>;</p>
             <p class="text-yellow-400">Optimizing speed & conversions...</p>
           </div>
           <div class="p-6 pt-0">
@@ -135,28 +133,52 @@
         </div>
 
         <!-- Tarjeta 2: Full-Stack -->
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-red-500/50 transition-all duration-300 shadow-xl group reveal delay-200 hover:-translate-y-1">
-          <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl mb-6 group-hover:scale-110 transition-transform">💻</div>
-          <h3 class="text-xl font-bold text-white mb-3">Desarrollo Full-Stack</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Sistemas web dinámicos con Node.js, Express, PostgreSQL y arquitecturas escalables.
-          </p>
+        <div class="rounded-2xl bg-cardbg border border-slate-800 hover:border-red-500/50 transition-all duration-300 shadow-xl overflow-hidden reveal delay-200 hover:-translate-y-1 flex flex-col justify-between">
+          <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500">server.express.js</span>
+          </div>
+          <div class="p-6 font-mono text-xs text-slate-300 space-y-2">
+            <p class="text-slate-500">// Express & PostgreSQL</p>
+            <p><span class="text-purple-400">const</span> app <span class="text-red-400">=</span> express();</p>
+            <p class="text-emerald-400">Database connected successfully.</p>
+          </div>
+          <div class="p-6 pt-0">
+            <h3 class="text-xl font-bold text-white mb-2">Desarrollo Full-Stack</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Sistemas web dinámicos con Node.js, Express, bases de datos y arquitecturas escalables.</p>
+          </div>
         </div>
 
         <!-- Tarjeta 3: LMS -->
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-yellow-500/50 transition-all duration-300 shadow-xl group reveal delay-300 hover:-translate-y-1">
-          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 transition-transform">🎓</div>
-          <h3 class="text-xl font-bold text-white mb-3">Plataformas LMS & EduControl</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Plataformas educativas integradas con LearnDash y gestión avanzada de usuarios.
-          </p>
+        <div class="rounded-2xl bg-cardbg border border-slate-800 hover:border-yellow-500/50 transition-all duration-300 shadow-xl overflow-hidden reveal delay-300 hover:-translate-y-1 flex flex-col justify-between">
+          <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500">learndash.module.ts</span>
+          </div>
+          <div class="p-6 font-mono text-xs text-slate-300 space-y-2">
+            <p class="text-slate-500">// LMS & EduControl Access</p>
+            <p><span class="text-purple-400">export</span> <span class="text-yellow-300">class</span> EduSystem {}</p>
+            <p class="text-purple-300">Role permissions initialized.</p>
+          </div>
+          <div class="p-6 pt-0">
+            <h3 class="text-xl font-bold text-white mb-2">Plataformas LMS & EduControl</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Plataformas educativas integradas con LearnDash y gestión avanzada de usuarios.</p>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Portafolio / Proyectos -->
+  <!-- Portafolio / Proyectos Recientes (Nuevo Estilo Showcase de Alto Nivel) -->
   <section id="portafolio" class="py-20 px-6 border-t border-slate-800/60">
     <div class="max-w-6xl mx-auto">
       
@@ -169,43 +191,57 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <!-- Tarjeta Proyecto 1 estilo Terminal -->
-        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-purple-500/40 transition-all duration-300 group reveal delay-100 hover:-translate-y-1">
-          <div class="bg-slate-900/80 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-red-500"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+        <!-- Proyecto 1: Showcase con Neón & Mockup -->
+        <div class="rounded-2xl bg-cardbg border border-slate-800/90 overflow-hidden hover:border-purple-500/60 transition-all duration-300 group reveal delay-100 hover:-translate-y-1 shadow-2xl flex flex-col justify-between">
+          <div class="relative h-56 bg-gradient-to-br from-slate-900 via-purple-950/20 to-slate-900 flex items-center justify-center p-6 overflow-hidden border-b border-slate-800/80">
+            <!-- Efecto Glow de fondo -->
+            <div class="absolute inset-0 bg-purple-600/10 group-hover:bg-purple-600/20 transition-all duration-500 pointer-events-none"></div>
+            
+            <!-- Contenido mockup/vista previa del proyecto -->
+            <div class="relative z-10 text-center">
+              <span class="text-2xl sm:text-3xl font-black text-white tracking-widest group-hover:scale-105 transition-transform duration-300 block">
+                TURISMARS TRAVEL
+              </span>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                Agencia de Turismo
+              </span>
             </div>
-            <span class="text-[10px] font-mono text-slate-500">turismars-travel.com</span>
           </div>
-          <div class="h-44 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
-            <span class="text-3xl font-black text-slate-700 group-hover:text-purple-400 transition-colors">TURISMARS TRAVEL</span>
-          </div>
+          
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Turismars Travel</h3>
-            <p class="text-slate-400 text-sm mb-4">Identidad corporativa y desarrollo web enfocado en la conversión de clientes.</p>
-            <span class="inline-block bg-slate-900 border border-slate-800 text-xs text-slate-300 px-3 py-1 rounded-full">Branding & Web</span>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Turismars Travel</h3>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">Identidad corporativa, diseño de logotipo minimalista y desarrollo web enfocado en la conversión de clientes.</p>
+            <div class="flex items-center gap-2">
+              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Branding</span>
+              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Desarrollo Web</span>
+            </div>
           </div>
         </div>
 
-        <!-- Tarjeta Proyecto 2 estilo Terminal -->
-        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-red-500/40 transition-all duration-300 group reveal delay-200 hover:-translate-y-1">
-          <div class="bg-slate-900/80 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-red-500"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+        <!-- Proyecto 2: Showcase con Neón & Mockup -->
+        <div class="rounded-2xl bg-cardbg border border-slate-800/90 overflow-hidden hover:border-red-500/60 transition-all duration-300 group reveal delay-200 hover:-translate-y-1 shadow-2xl flex flex-col justify-between">
+          <div class="relative h-56 bg-gradient-to-br from-slate-900 via-red-950/20 to-slate-900 flex items-center justify-center p-6 overflow-hidden border-b border-slate-800/80">
+            <!-- Efecto Glow de fondo -->
+            <div class="absolute inset-0 bg-red-600/10 group-hover:bg-red-600/20 transition-all duration-500 pointer-events-none"></div>
+            
+            <!-- Contenido mockup/vista previa del proyecto -->
+            <div class="relative z-10 text-center">
+              <span class="text-2xl sm:text-3xl font-black text-white tracking-widest group-hover:scale-105 transition-transform duration-300 block">
+                DELIVERY SYSTEM
+              </span>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-red-500/20 text-red-300 border border-red-500/30">
+                Plataforma de Pedidos
+              </span>
             </div>
-            <span class="text-[10px] font-mono text-slate-500">delivery-app.js</span>
           </div>
-          <div class="h-44 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
-            <span class="text-3xl font-black text-slate-700 group-hover:text-red-400 transition-colors">DELIVERY SYSTEM</span>
-          </div>
+          
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Sistema de Pedidos Delivery</h3>
-            <p class="text-slate-400 text-sm mb-4">Infraestructura web independiente con subdominios personalizados para pedidos en línea.</p>
-            <span class="inline-block bg-slate-900 border border-slate-800 text-xs text-slate-300 px-3 py-1 rounded-full">Node.js & Express</span>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">Sistema de Pedidos Delivery</h3>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">Infraestructura web independiente con subdominios personalizados para la gestión de pedidos y despachos.</p>
+            <div class="flex items-center gap-2">
+              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Node.js</span>
+              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Express & API</span>
+            </div>
           </div>
         </div>
 
