@@ -1,198 +1,624 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GS CREATIVO | Desarrollo Web & Soluciones Digitales</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        lightbg: '#f8fafc',
-                        cardbg: '#ffffff',
-                        cardborder: '#e2e8f0',
-                        bodytext: '#475569',
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GS CREATIVO | Desarrollo Web & Soluciones Digitales</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lightbg: '#f8fafc',
+            cardbg: '#ffffff',
+            heading: '#0f172a',
+            bodytext: '#334155'
+          }
         }
-    </script>
+      }
+    }
+  </script>
+  <style>
+    /* Transiciones de Scroll Reveal Optimizadas para GPU */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+
+    /* Perspectiva 3D Estática Ultrafast en Modo Claro */
+    .perspective-container {
+      perspective: 1000px;
+    }
+    .phone-3d {
+      transform: rotateY(-16deg) rotateX(8deg) rotateZ(2deg);
+    }
+    .dashboard-3d {
+      transform: rotateY(12deg) rotateX(6deg);
+    }
+  </style>
 </head>
-<body class="bg-lightbg text-bodytext font-sans antialiased selection:bg-purple-600 selection:text-white">
+<body class="bg-lightbg text-bodytext font-sans antialiased selection:bg-purple-600 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-    <!-- HEADER / NAVBAR -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-cardborder">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
-                <img src="images/logo-gs.png" alt="GS Creativo Logo" class="h-10 w-auto object-contain">
-                <span class="font-extrabold tracking-wider text-lg text-slate-900">GS CREATIVO</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
-                <a href="#servicios" class="hover:text-purple-600 transition-colors">Servicios</a>
-                <a href="#experiencia" class="hover:text-purple-600 transition-colors">Portafolio</a>
-                <a href="#faq" class="hover:text-purple-600 transition-colors">FAQ</a>
-                <a href="#contacto" class="bg-purple-600 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-purple-700 transition-all shadow-md shadow-purple-600/20">Contacto</a>
-            </nav>
+  <!-- Header / Navbar -->
+  <header class="w-full border-b border-slate-200/80 backdrop-blur-md bg-white/80 fixed top-0 z-50 transition-all">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-500 to-blue-500 p-[2px] flex items-center justify-center shadow-md shadow-purple-500/20">
+          <div class="h-full w-full bg-slate-900 rounded-[10px] flex items-center justify-center font-bold text-lg text-white">GS</div>
         </div>
-    </header>
+        <span class="font-extrabold tracking-wider text-lg text-slate-900">GS CREATIVO</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600 font-medium">
+        <a href="#servicios" class="hover:text-purple-600 transition-colors">Servicios</a>
+        <a href="#apps" class="hover:text-purple-600 transition-colors">Desarrollo Apps</a>
+        <a href="#portafolio" class="hover:text-purple-600 transition-colors">Portafolio</a>
+        <a href="#precios" class="hover:text-purple-600 transition-colors">Precios</a>
+        <a href="#contacto" class="hover:text-purple-600 transition-colors">Contacto</a>
+      </nav>
+      <a href="#contacto" class="bg-slate-900 text-white font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-purple-600 transition-all shadow-md shadow-slate-900/10">
+        Conversemos
+      </a>
+    </div>
+  </header>
 
-    <!-- HERO SECTION -->
-    <section class="py-24 px-6 text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold mb-6">
-            ✨ Desarrollo Full-Stack & Plataformas a Medida
+  <!-- Hero Section Centrado (Fondo Claro con Luces de Gradiente Suaves) -->
+  <section class="relative flex-grow flex items-center justify-center pt-36 pb-24 px-6 overflow-hidden">
+    <!-- Luces de fondo difuminadas -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-gradient-to-tr from-purple-200/50 via-blue-200/40 to-indigo-100/60 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-200 bg-purple-50 text-purple-700 text-xs font-semibold mb-8 shadow-sm">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Disponible para nuevos proyectos web & apps
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-slate-900">
+        Desarrollo web y software <br>
+        <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">de alto nivel.</span>
+      </h1>
+
+      <!-- Consola de Sintaxis en Modo Claro -->
+      <div class="max-w-2xl mx-auto mb-10 p-4 rounded-2xl bg-white border border-slate-200/90 font-mono text-sm sm:text-base text-left shadow-xl shadow-slate-200/60 backdrop-blur-md min-h-[70px] flex items-center justify-center">
+        <div class="text-center w-full">
+          <span class="text-purple-600 font-bold">const</span> <span class="text-blue-600 font-bold">stack</span> <span class="text-slate-700 font-bold">=</span> <span class="text-slate-500">[</span><span id="hero-typing-text" class="text-emerald-600 font-semibold"></span><span class="animate-pulse text-purple-600 font-bold">|</span><span class="text-slate-500">];</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6">
-            Soluciones digitales de alto rendimiento para tu negocio
-        </h1>
-        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
-            Creamos experiencias web optimizadas, integraciones CRM avanzadas y plataformas robustas diseñadas para escalar tus conversiones.
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-95 transition-all shadow-xl shadow-purple-600/20">
+          Iniciar Proyecto
+        </a>
+        <a href="#portafolio" class="w-full sm:w-auto bg-white border border-slate-300 text-slate-700 font-semibold px-8 py-4 rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-all shadow-sm">
+          Ver Trabajos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios / Bento Grid Centrado con Logos Vectoriales Oficiales -->
+  <section id="servicios" class="py-20 px-6 relative bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3">Especialidades</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 min-h-[50px]">
+          <span id="type-servicios" class="type-target" data-text="Soluciones Digitales a Medida"></span>
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contacto" class="bg-purple-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-purple-700 transition-all shadow-lg shadow-purple-600/25">
-                Iniciar Proyecto
-            </a>
-            <a href="#servicios" class="bg-white border border-cardborder text-slate-800 font-semibold px-8 py-4 rounded-xl hover:bg-slate-50 transition-all">
-                Explorar Servicios
-            </a>
-        </div>
-    </section>
+      </div>
 
-    <!-- BENTO GRID SERVICIOS -->
-    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-950 mb-3">Nuestros Servicios</h2>
-            <p class="text-slate-600">Tecnología de punta y arquitectura limpia para potenciar tu marca.</p>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:border-purple-300 transition-all">
-                <div class="h-14 w-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Desarrollo Web & E-commerce</h3>
-                <p class="text-slate-600 text-sm">Tiendas online optimizadas y plataformas dinámicas con WordPress, WooCommerce y arquitecturas modernas.</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:border-purple-300 transition-all">
-                <div class="h-14 w-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Automatización & CRM</h3>
-                <p class="text-slate-600 text-sm">Sincronización de herramientas externas como GoHighLevel para automatizar flujos de datos y accesos.</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl p-8 flex flex-col items-center text-center shadow-sm hover:border-purple-300 transition-all">
-                <div class="h-14 w-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Apps & Interfaces Custom</h3>
-                <p class="text-slate-600 text-sm">Desarrollo frontend de alto rendimiento y aplicaciones escalables con enfoque minimalista y veloz.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREGUNTAS FRECUENTES (FAQ) -->
-    <section id="faq" class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-950 mb-3">Preguntas Frecuentes</h2>
-            <p class="text-slate-600">Resolvemos tus dudas antes de comenzar a trabajar juntos.</p>
+        <!-- Tarjeta 1: WordPress & WooCommerce (Icono E-Commerce / Tienda Digital Limpio) -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-400 transition-all duration-300 shadow-lg shadow-slate-100 hover:shadow-xl group reveal delay-100 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <!-- Icono de Tienda Digital / E-Commerce Limpio & Legible -->
+            <svg class="w-9 h-9 text-blue-600 fill-none stroke-current stroke-2 stroke-linecap-round stroke-linejoin-round" viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">WordPress & WooCommerce</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Implementaciones personalizadas, maquetación avanzada con Elementor Pro y optimización extrema de velocidad de carga.
+          </p>
         </div>
 
-        <div class="space-y-4">
-            <!-- FAQ Item 1 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl overflow-hidden shadow-sm">
-                <button class="faq-toggle w-full p-6 text-left font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
-                    <span>¿Cuánto tiempo toma desarrollar una página web o app?</span>
-                    <span class="faq-icon text-xl text-purple-600 font-bold">+</span>
-                </button>
-                <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600">
-                    El tiempo varía según la complejidad del proyecto. Una landing page optimizada suele tomar entre 3 y 7 días hábiles, mientras que plataformas e-commerce o sistemas personalizados pueden requerir de 2 a 4 semanas.
-                </div>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl overflow-hidden shadow-sm">
-                <button class="faq-toggle w-full p-6 text-left font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
-                    <span>¿Qué necesito entregar para comenzar el proyecto?</span>
-                    <span class="faq-icon text-xl text-purple-600 font-bold">+</span>
-                </button>
-                <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600">
-                    Necesitamos conocer la idea principal de tu negocio, tu logotipo corporativo, referencias visuales que te gusten y los textos o contenido clave que deseas mostrar a tus clientes.
-                </div>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl overflow-hidden shadow-sm">
-                <button class="faq-toggle w-full p-6 text-left font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
-                    <span>¿Cómo se maneja el esquema de pagos?</span>
-                    <span class="faq-icon text-xl text-purple-600 font-bold">+</span>
-                </button>
-                <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600">
-                    Trabajamos bajo un esquema estándar del 50% de anticipo para iniciar el desarrollo y el 50% restante al finalizar y aprobar el proyecto antes del lanzamiento oficial.
-                </div>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="bg-cardbg border border-cardborder rounded-2xl overflow-hidden shadow-sm">
-                <button class="faq-toggle w-full p-6 text-left font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
-                    <span>¿Incluyes soporte post-lanzamiento?</span>
-                    <span class="faq-icon text-xl text-purple-600 font-bold">+</span>
-                </button>
-                <div class="faq-content hidden px-6 pb-6 text-sm text-slate-600">
-                    Sí, todos nuestros desarrollos incluyen un periodo de garantía y soporte técnico inicial para asegurar que todo funcione de manera impecable en producción.
-                </div>
-            </div>
+        <!-- Tarjeta 2: Full-Stack (Logo Oficial Node.js / Hexágono Vectorial) -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-300 transition-all duration-300 shadow-lg shadow-slate-100 group reveal delay-200 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-9 h-9 fill-[#026e00]" viewBox="0 0 24 24">
+              <path d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2zm8 13.5l-8 4.4-8-4.4v-7l8-4.4 8 4.4v7zM11 9h2v6h-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Desarrollo Full-Stack</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Sistemas web dinámicos construidos con Node.js, Express, PostgreSQL y arquitecturas escalables y seguras.
+          </p>
         </div>
-    </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-20 px-6 max-w-3xl mx-auto">
-        <div class="bg-cardbg border border-cardborder rounded-3xl p-8 md:p-12 shadow-sm text-center">
-            <h2 class="text-3xl font-bold text-slate-950 mb-3">¿Listo para impulsar tu proyecto?</h2>
-            <p class="text-slate-600 mb-8">Escríbenos y comencemos a trabajar en tu próxima solución digital.</p>
-            <a href="mailto:contacto@gscreativo.com" class="inline-block bg-purple-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-purple-700 transition-all shadow-lg shadow-purple-600/25">
-                Contáctanos Directamente
-            </a>
+        <!-- Tarjeta 3: LMS (Ícono Educación Vectorial) -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-300 transition-all duration-300 shadow-lg shadow-slate-100 group reveal delay-300 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-9 h-9 fill-[#d97706]" viewBox="0 0 24 24">
+              <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5l-7-3.82v4.32C5 18.66 8.13 20 12 20s7-1.34 7-2.99v-4.32l-7 3.82z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Plataformas LMS & EduControl</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Plataformas educativas integradas con LearnDash, gestión de roles de usuarios y paneles administrativos.
+          </p>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-cardborder py-8 text-center text-sm text-slate-500">
-        <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- SCRIPT ACORDEÓN FAQ -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const faqToggles = document.querySelectorAll(".faq-toggle");
-            faqToggles.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const content = btn.nextElementSibling;
-                    const icon = btn.querySelector(".faq-icon");
-                    const isHidden = content.classList.contains("hidden");
+  <!-- SECCIÓN DE APPS (Modo Claro) -->
+  <section id="apps" class="py-24 px-6 relative overflow-hidden bg-slate-50/70">
+    <div class="max-w-6xl mx-auto space-y-28">
+      
+      <!-- BLOQUE 1: APPS MÓVILES + MOCKUP DE CELULAR 3D EN MODO CLARO -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
+        <div class="reveal">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-3">Mobile Development</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
+            Creación de Apps Móviles a Medida.
+          </h3>
+          <p class="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
+            Diseñamos y desarrollamos aplicaciones móviles nativas y multiplataforma optimizadas para iOS y Android con Flutter y backend sincronizado.
+          </p>
+          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-700 mb-8">
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> Flutter Framework
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> iOS & Android Ready
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> Push Notifications
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> UI/UX de Alto Impacto
+            </div>
+          </div>
+          <a href="#contacto" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20">
+            Cotizar App Móvil
+          </a>
+        </div>
 
-                    // Cerrar todos los demás
-                    document.querySelectorAll(".faq-content").forEach((c) => c.classList.add("hidden"));
-                    document.querySelectorAll(".faq-icon").forEach((i) => {
-                        i.textContent = "+";
-                        i.style.transform = "rotate(0deg)";
-                    });
+        <!-- Smartphone Mockup 3D (Modo Claro) -->
+        <div class="perspective-container flex justify-center relative reveal delay-100">
+          <div class="phone-3d w-[270px] h-[500px] rounded-[40px] bg-slate-900 border-[6px] border-slate-800 p-3 shadow-2xl relative flex flex-col justify-between">
+            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-20"></div>
 
-                    // Alternar actual
-                    if (isHidden) {
-                        content.classList.remove("hidden");
-                        icon.textContent = "−";
-                        icon.style.transform = "rotate(180deg)";
-                    }
-                });
-            });
+            <div class="mt-4 w-full h-full bg-slate-50 rounded-[28px] p-5 text-slate-900 flex flex-col justify-between z-10 font-sans shadow-inner">
+              <div>
+                <div class="flex items-center justify-between text-xs text-slate-500 pt-3 pb-3 border-b border-slate-200">
+                  <span class="font-bold text-slate-900">EduControl Mobile</span>
+                  <span class="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full">En Vivo</span>
+                </div>
+
+                <div class="mt-4 space-y-3">
+                  <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                    <p class="text-[10px] text-slate-400 font-semibold uppercase">Usuarios Activos</p>
+                    <p class="text-2xl font-black text-slate-900 mt-1">1,482</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-emerald-600 font-bold">
+                      ▲ +24% este mes
+                    </div>
+                  </div>
+
+                  <div class="p-3.5 rounded-2xl bg-slate-900 text-white shadow-md">
+                    <p class="text-[10px] text-slate-400 font-semibold uppercase">Estado Servidor</p>
+                    <div class="flex justify-between items-center mt-1">
+                      <span class="text-xs font-bold text-emerald-400">Supabase Sync</span>
+                      <span class="text-[10px] text-slate-300">99.9%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-purple-600 text-white p-3 rounded-2xl text-center text-xs font-bold shadow-md shadow-purple-600/30">
+                Aprobar Registro
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 2: DASHBOARD MULTIPLATAFORMA EN MODO CLARO -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
+        <div class="perspective-container relative reveal order-2 lg:order-1">
+          <div class="dashboard-3d rounded-2xl bg-white border border-slate-200/90 p-6 relative shadow-2xl shadow-slate-200">
+            <div class="absolute -top-3 right-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black text-[10px] tracking-wider uppercase px-3.5 py-1 rounded-full shadow-md">
+              Multiplataforma
+            </div>
+
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4 font-mono text-xs">
+              <span class="text-blue-600 font-bold tracking-wider">GS-SYSTEM // CONTROL PANEL</span>
+              <span class="text-slate-400 text-[10px]">LATENCY: 12ms</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-[10px] font-mono text-slate-500 block mb-1">Rendimiento Sistema</span>
+                <span class="text-lg font-black text-slate-900">98.4%</span>
+                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden">
+                  <div class="bg-blue-600 h-full w-[98%]"></div>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-[10px] font-mono text-slate-500 block mb-1">Tráfico API REST</span>
+                <span class="text-lg font-black text-emerald-600">45.2 TB/s</span>
+                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden">
+                  <div class="bg-emerald-500 h-full w-[85%]"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[11px] space-y-1.5 shadow-sm">
+              <p class="text-slate-400">// Actividad en tiempo real</p>
+              <p><span class="text-blue-400">✓</span> Auth Token Verified: <span class="text-emerald-400">User #8493</span></p>
+              <p><span class="text-blue-400">✓</span> Cloud Sync PostgreSQL: <span class="text-amber-400">Complete</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal delay-100 order-1 lg:order-2">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">Web Architecture & Multiplatform</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
+            Aplicaciones Web y Ecosistemas Multiplataforma.
+          </h3>
+          <p class="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
+            Unificamos la experiencia de tus usuarios conectando tu aplicación móvil con plataformas web robustas en Node.js, Express y bases de datos PostgreSQL o Supabase.
+          </p>
+          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-700 mb-8">
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> Node.js & Express
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> Supabase / PostgreSQL
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> API REST Seguras
+            </div>
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> Multiplataforma Real
+            </div>
+          </div>
+          <a href="#contacto" class="inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg">
+            Cotizar Sistema Web
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Portafolio / Proyectos Recientes (Modo Claro) -->
+  <section id="portafolio" class="py-20 px-6 bg-white relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3">Casos de Éxito</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 min-h-[50px]">
+          <span id="type-portafolio" class="type-target" data-text="Proyectos Recientes"></span>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Proyecto 1 -->
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 transition-all duration-300 group reveal delay-100 shadow-lg shadow-slate-100 flex flex-col justify-between">
+          <div class="relative h-56 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-950 flex items-center justify-center p-6 overflow-hidden">
+            <div class="relative z-10 text-center">
+              <span class="text-2xl sm:text-3xl font-black text-white tracking-widest group-hover:scale-105 transition-transform duration-300 block">
+                TURISMARS TRAVEL
+              </span>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-purple-500/30 text-purple-200 border border-purple-400/30">
+                Agencia de Turismo
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">Turismars Travel</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">Identidad corporativa, diseño de logotipo minimalista y desarrollo web enfocado en la conversión de clientes.</p>
+            <div class="flex items-center gap-2">
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Branding</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Desarrollo Web</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-blue-400 transition-all duration-300 group reveal delay-200 shadow-lg shadow-slate-100 flex flex-col justify-between">
+          <div class="relative h-56 bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 flex items-center justify-center p-6 overflow-hidden">
+            <div class="relative z-10 text-center">
+              <span class="text-2xl sm:text-3xl font-black text-white tracking-widest group-hover:scale-105 transition-transform duration-300 block">
+                DELIVERY SYSTEM
+              </span>
+              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-blue-500/30 text-blue-200 border border-blue-400/30">
+                Plataforma de Pedidos
+              </span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Sistema de Pedidos Delivery</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">Infraestructura web independiente con subdominios personalizados para la gestión de pedidos y despachos.</p>
+            <div class="flex items-center gap-2">
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Node.js</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Express & API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios y Planes (Modo Claro) -->
+  <section id="precios" class="py-20 px-6 bg-slate-50 relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Inversión Transparente</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Planes & Soluciones</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Plan 1 -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-md reveal delay-100">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Web Corporativa</h3>
+            <p class="text-slate-500 text-xs mb-6">Ideal para negocios que buscan presencia profesional de alto impacto.</p>
+            <div class="text-3xl font-extrabold text-slate-900 mb-6">A cotizar <span class="text-xs text-slate-400 font-normal">/ proyecto</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Diseños ultra-rápidos y responsivos</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Optimización SEO inicial</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Integración con WhatsApp y Formulario</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Dominio & Hosting configurados</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="w-full bg-slate-100 border border-slate-200 text-slate-800 font-semibold py-3 rounded-xl text-center hover:bg-slate-200 transition-all text-xs">
+            Seleccionar Plan
+          </a>
+        </div>
+
+        <!-- Plan 2 (Destacado) -->
+        <div class="rounded-2xl bg-white border-2 border-purple-600 p-8 flex flex-col justify-between relative shadow-2xl shadow-purple-600/15 reveal delay-200 scale-105">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-[10px] tracking-wider uppercase px-4 py-1 rounded-full shadow-md">
+            Más Solicitado
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">E-Commerce & LMS</h3>
+            <p class="text-slate-500 text-xs mb-6">Tiendas online avanzadas o plataformas educativas con LearnDash.</p>
+            <div class="text-3xl font-extrabold text-slate-900 mb-6">A cotizar <span class="text-xs text-slate-400 font-normal">/ proyecto</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Todo lo de Web Corporativa</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> WooCommerce o LearnDash LMS</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Pasarelas de Pago Integradas</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Panel de Control & Gestión</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-3 rounded-xl text-center hover:opacity-95 transition-all shadow-md text-xs">
+            Cotizar Ahora
+          </a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-md reveal delay-300">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">App / Software Custom</h3>
+            <p class="text-slate-500 text-xs mb-6">Aplicaciones móviles o sistemas full-stack hechos a la medida.</p>
+            <div class="text-3xl font-extrabold text-slate-900 mb-6">A medida <span class="text-xs text-slate-400 font-normal">/ requerimientos</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Node.js, Express, PostgreSQL</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> App Móvil en Flutter</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Autenticación & Roles Custom</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Arquitectura 100% Escalable</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="w-full bg-slate-100 border border-slate-200 text-slate-800 font-semibold py-3 rounded-xl text-center hover:bg-slate-200 transition-all text-xs">
+            Consultar Proyecto
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preguntas Frecuentes (FAQ) -->
+  <section id="faq" class="py-20 px-6 bg-white relative border-t border-slate-100">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3">Dudas Habituales</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Preguntas Frecuentes</p>
+      </div>
+
+      <div class="space-y-4 reveal delay-100">
+        <!-- FAQ 1 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50 transition-all duration-200 hover:border-purple-300">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 font-bold text-slate-900 text-base sm:text-lg focus:outline-none">
+            <span>¿Cuánto tiempo toma desarrollar un proyecto web o app?</span>
+            <span class="faq-icon text-purple-600 text-xl font-normal transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            El tiempo varía según la complejidad. Una sitio web corporativo o landing page suele tomar entre 1 y 2 semanas. Un sistema e-commerce o plataforma LMS requiere de 2 a 4 semanas, mientras que una app móvil personalizada toma de 4 a 8 semanas desde la etapa de diseño hasta la publicación en tiendas.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50 transition-all duration-200 hover:border-purple-300">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 font-bold text-slate-900 text-base sm:text-lg focus:outline-none">
+            <span>¿Qué información necesito entregar para iniciar mi proyecto?</span>
+            <span class="faq-icon text-purple-600 text-xl font-normal transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Idealmente nos compartes tu logotipo (si lo tienes), el contenido textual o imágenes que deseas incluir, y una lista de funcionalidades deseadas. Si aún no tienes nada de esto listo, ¡no te preocupes! Nosotros te orientamos en la estructura y redacción del proyecto.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50 transition-all duration-200 hover:border-purple-300">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 font-bold text-slate-900 text-base sm:text-lg focus:outline-none">
+            <span>¿Incluyen servicio de soporte técnico y mantenimiento posterior?</span>
+            <span class="faq-icon text-purple-600 text-xl font-normal transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            ¡Totalmente! Todos nuestros planes incluyen un periodo de garantía y soporte técnico gratuito posterior al lanzamiento (de 30 a 60 días). Además, ofrecemos planes opcionales de mantenimiento mensual para respaldos, seguridad y actualizaciones continuas.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50 transition-all duration-200 hover:border-purple-300">
+          <button type="button" class="faq-toggle w-full p-6 text-left flex justify-between items-center gap-4 font-bold text-slate-900 text-base sm:text-lg focus:outline-none">
+            <span>¿Cómo se realiza el esquema de pagos?</span>
+            <span class="faq-icon text-purple-600 text-xl font-normal transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            Trabajamos con un esquema transparente: 50% de anticipo para dar inicio a la etapa de arquitectura y diseño, y el 50% restante a la entrega final y conformidad previa al despliegue en servidor de producción.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto (Modo Claro) -->
+  <section id="contacto" class="py-20 px-6 bg-white reveal">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-6 min-h-[60px] flex items-center justify-center">
+        <span id="type-contacto" class="type-target" data-text="¿Tienes un proyecto en mente?"></span>
+      </h2>
+      <p class="text-slate-600 mb-10 text-lg">Transformemos tu idea en un producto web o app funcional y atractiva.</p>
+
+      <form class="space-y-4 text-left max-w-lg mx-auto mb-10">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-2 uppercase">Tu Nombre</label>
+          <input type="text" placeholder="Ej: Carlos Pérez" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-2 uppercase">Tu Correo</label>
+          <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 mb-2 uppercase">Mensaje o Detalle del Proyecto</label>
+          <textarea rows="4" placeholder="Cuéntame sobre tu proyecto..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"></textarea>
+        </div>
+        <button type="button" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-4 rounded-xl hover:opacity-95 transition-all shadow-xl shadow-purple-600/20">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200/80 py-8 text-center text-xs text-slate-500 bg-slate-50">
+    <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts de Animaciones -->
+  <script>
+    const codePhrases = [
+      '"Node.js & Express"',
+      '"WordPress & WooCommerce"',
+      '"Flutter & Mobile Apps"',
+      '"LearnDash LMS"'
+    ];
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeletingCode = false;
+    const heroTypingEl = document.getElementById("hero-typing-text");
+
+    function typeCodeHero() {
+      const current = codePhrases[phraseIdx];
+      if (isDeletingCode) {
+        heroTypingEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        heroTypingEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeletingCode ? 40 : 80;
+
+      if (!isDeletingCode && charIdx === current.length) {
+        speed = 2000;
+        isDeletingCode = true;
+      } else if (isDeletingCode && charIdx === 0) {
+        isDeletingCode = false;
+        phraseIdx = (phraseIdx + 1) % codePhrases.length;
+        speed = 400;
+      }
+
+      setTimeout(typeCodeHero, speed);
+    }
+
+    function typeSectionTitle(element) {
+      if (element.classList.contains("typed-done")) return;
+      element.classList.add("typed-done");
+
+      const fullText = element.getAttribute("data-text");
+      let idx = 0;
+      
+      function write() {
+        if (idx < fullText.length) {
+          element.textContent += fullText.charAt(idx);
+          idx++;
+          setTimeout(write, 40);
+        }
+      }
+      write();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeCodeHero, 600);
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+
+            const titleTarget = entry.target.querySelector(".type-target");
+            if (titleTarget) {
+              typeSectionTitle(titleTarget);
+            }
+            obs.unobserve(entry.target);
+          }
         });
-    </script>
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+      // Lógica de acordeones FAQ
+      const faqToggles = document.querySelectorAll(".faq-toggle");
+      faqToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector(".faq-icon");
+          const isHidden = content.classList.contains("hidden");
+
+          // Cerrar otros abiertos
+          document.querySelectorAll(".faq-content").forEach((c) => c.classList.add("hidden"));
+          document.querySelectorAll(".faq-icon").forEach((i) => {
+            i.textContent = "+";
+            i.style.transform = "rotate(0deg)";
+          });
+
+          // Toggle actual
+          if (isHidden) {
+            content.classList.remove("hidden");
+            icon.textContent = "−";
+            icon.style.transform = "rotate(180deg)";
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
