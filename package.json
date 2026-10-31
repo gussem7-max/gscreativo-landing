@@ -1,1 +1,8 @@
-
+{
+  "name": "gs-creativo-landing",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "resend": "^4.5.0"
+  }
+}
