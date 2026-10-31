@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     // Enviar email con Resend
     const { data, error } = await resend.emails.send({
       from: 'GS CREATIVO <onboarding@resend.dev>', // Cambia esto si verificas tu dominio
-      to: ['contacto@gscreativo.com'], // ⚠️ CAMBIA ESTO por tu email real
+      to: ['gussem7@gmail.com'], // ⚠️ CAMBIA ESTO por tu email real
       replyTo: email,
       subject: `Nuevo contacto de ${nombre} - GS CREATIVO`,
       html: `
