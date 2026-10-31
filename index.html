@@ -34,26 +34,15 @@
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
 
-    /* Perspectiva y Rotación 3D para Celular y Dashboard */
+    /* Perspectiva y Posición 3D Estática (Sin Efecto Mouse) */
     .perspective-container {
       perspective: 1000px;
     }
     .phone-3d {
       transform: rotateY(-18deg) rotateX(10deg) rotateZ(3deg);
-      transition: transform 0.5s ease;
-      transform-style: preserve-3d;
     }
-    .phone-3d:hover {
-      transform: rotateY(-5deg) rotateX(5deg) scale(1.02);
-    }
-
     .dashboard-3d {
       transform: rotateY(12deg) rotateX(6deg);
-      transition: transform 0.5s ease;
-      transform-style: preserve-3d;
-    }
-    .dashboard-3d:hover {
-      transform: rotateY(0deg) rotateX(0deg) scale(1.02);
     }
   </style>
 </head>
@@ -189,11 +178,11 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE APPS: 1. Celular 3D Blanco con Luces y 2. Dashboard Multiplataforma Futurista -->
+  <!-- SECCIÓN DE APPS: Sin líneas divisorias y estática en 3D -->
   <section id="apps" class="py-24 px-6 border-t border-slate-800/60 relative overflow-hidden">
     <div class="max-w-6xl mx-auto space-y-32">
       
-      <!-- BLOQUE 1: APPS MÓVILES + MOCKUP DE CELULAR 3D EN MODO CLARO CON LUZ DE NEÓN -->
+      <!-- BLOQUE 1: APPS MÓVILES + MOCKUP DE CELULAR 3D -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
         <div class="reveal">
           <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Mobile Development</h2>
@@ -222,20 +211,14 @@
           </a>
         </div>
 
-        <!-- Celular 3D con Fondo con Luz Resplandeciente -->
+        <!-- Celular 3D Estático (Sin efecto hover lento) -->
         <div class="perspective-container flex justify-center relative reveal delay-200">
-          <!-- Luz Resplandeciente detras del celular (Neon Glow Effect) -->
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[450px] bg-gradient-to-tr from-emerald-500/30 to-purple-600/30 rounded-full blur-[90px] pointer-events-none"></div>
 
-          <!-- Celular Rotado 3D -->
           <div class="phone-3d w-[270px] h-[520px] rounded-[42px] bg-slate-900 border-[6px] border-slate-700/80 p-3 shadow-2xl relative flex flex-col justify-between shadow-emerald-500/10">
-            <!-- Notch Superior -->
             <div class="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-20"></div>
 
-            <!-- Pantalla Blanca / App Modo Claro -->
             <div class="mt-4 w-full h-full bg-slate-50 rounded-[30px] p-5 text-slate-900 flex flex-col justify-between shadow-inner z-10 font-sans">
-              
-              <!-- Header App Móvil -->
               <div>
                 <div class="flex items-center justify-between text-xs text-slate-500 pt-3 pb-3 border-b border-slate-200">
                   <span class="font-bold text-slate-900">EduControl Mobile</span>
@@ -243,7 +226,6 @@
                 </div>
 
                 <div class="mt-4 space-y-3">
-                  <!-- Tarjeta Métrica 1 -->
                   <div class="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
                     <p class="text-[10px] text-slate-400 font-semibold uppercase">Usuarios Activos</p>
                     <p class="text-2xl font-black text-slate-900 mt-1">1,482</p>
@@ -252,7 +234,6 @@
                     </div>
                   </div>
 
-                  <!-- Tarjeta Métrica 2 -->
                   <div class="p-3.5 rounded-2xl bg-slate-900 text-white shadow-md">
                     <p class="text-[10px] text-slate-400 font-semibold uppercase">Estado Servidor</p>
                     <div class="flex justify-between items-center mt-1">
@@ -263,22 +244,19 @@
                 </div>
               </div>
 
-              <!-- Footer / CTA de la App Móvil -->
               <div class="bg-purple-600 text-white p-3 rounded-2xl text-center text-xs font-bold shadow-md shadow-purple-600/30">
                 Aprobar Registro
               </div>
-
             </div>
           </div>
         </div>
       </div>
 
-      <!-- BLOQUE 2: APPS WEB & DASHBOARD MULTIPLATAFORMA FUTURISTA 3D -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-12 border-t border-slate-800/40 relative">
+      <!-- BLOQUE 2: APPS WEB & DASHBOARD MULTIPLATAFORMA FUTURISTA 3D (Sin línea divisoria superior) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
         
-        <!-- Dashboard Futurista en 3D con Luz Cibernética -->
+        <!-- Dashboard 3D Estático (Sin efecto hover lento) -->
         <div class="perspective-container relative reveal order-2 lg:order-1">
-          <!-- Luz de neón futurista de fondo -->
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-cyan-500/20 rounded-full blur-[100px] pointer-events-none"></div>
 
           <div class="dashboard-3d rounded-2xl bg-slate-950/90 border border-cyan-500/40 p-6 relative shadow-2xl shadow-cyan-500/10 backdrop-blur-md">
@@ -287,13 +265,11 @@
               Multiplataforma
             </div>
 
-            <!-- Header Dashboard Futurista -->
             <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono text-xs">
               <span class="text-cyan-400 font-bold tracking-wider">GS-SYSTEM // CONTROL PANEL</span>
               <span class="text-slate-500 text-[10px]">LATENCY: 12ms</span>
             </div>
 
-            <!-- Gráficos Futuristas -->
             <div class="grid grid-cols-2 gap-3 mb-4">
               <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
                 <span class="text-[10px] font-mono text-slate-400 block mb-1">Rendimiento Sistema</span>
@@ -311,7 +287,6 @@
               </div>
             </div>
 
-            <!-- Terminal / Activity Log -->
             <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800/80 font-mono text-[11px] space-y-1.5 text-slate-300">
               <p class="text-slate-500">// Actividad en tiempo real</p>
               <p><span class="text-cyan-400">✓</span> Auth Token Verified: <span class="text-emerald-400">User #8493</span></p>
