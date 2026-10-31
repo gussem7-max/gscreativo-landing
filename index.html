@@ -59,14 +59,14 @@
     </div>
   </header>
 
-  <!-- Hero Section Centrado -->
+  <!-- Hero Section Centrado con Contenedor de Código Perfectamente Centrado -->
   <section class="relative flex-grow flex items-center justify-center pt-36 pb-24 px-6 overflow-hidden">
     <!-- Luces e iluminación de fondo -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[140px] pointer-events-none"></div>
     <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-red-500/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute bottom-10 right-1/4 w-[350px] h-[350px] bg-yellow-500/15 rounded-full blur-[100px] pointer-events-none"></div>
 
-    <div class="max-w-4xl mx-auto text-center relative z-10">
+    <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8 backdrop-blur-md shadow-lg shadow-purple-500/10">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         Disponible para nuevos proyectos web & apps
@@ -77,8 +77,9 @@
         <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">de alto nivel.</span>
       </h1>
 
-      <div class="max-w-2xl mx-auto mb-10 p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 font-mono text-sm sm:text-base text-left shadow-2xl backdrop-blur-md min-h-[70px] flex items-center">
-        <div class="w-full">
+      <!-- Contenedor centrado correctamente sin espacio vacío a la derecha -->
+      <div class="max-w-2xl mx-auto mb-10 p-4 rounded-xl bg-slate-950/90 border border-slate-800 font-mono text-sm sm:text-base text-left shadow-2xl backdrop-blur-md min-h-[70px] flex items-center justify-center">
+        <div class="text-center w-full">
           <span class="text-purple-400">const</span> <span class="text-yellow-300">stack</span> <span class="text-red-400">=</span> <span class="text-slate-400">[</span><span id="hero-typing-text" class="text-emerald-400"></span><span class="animate-pulse text-purple-400 font-bold">|</span><span class="text-slate-400">];</span>
         </div>
       </div>
@@ -168,47 +169,81 @@
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: Desarrollo de Aplicaciones Móviles y Web -->
-  <section id="apps" class="py-20 px-6 border-t border-slate-800/60 relative">
-    <div class="max-w-6xl mx-auto">
+  <!-- SECCIÓN EXPANDIDA DE APPS: 1. Apps Móviles (con celular) y 2. Apps Web (con multiplataforma y terminal) -->
+  <section id="apps" class="py-24 px-6 border-t border-slate-800/60 relative">
+    <div class="max-w-6xl mx-auto space-y-28">
+      
+      <!-- BLOQUE 1: APPS MÓVILES + MOCKUP DE CELULAR -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="reveal">
-          <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Software & Mobile</h2>
-          <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
-            Creación de Apps Web y Móviles a Medida.
+          <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Mobile Development</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+            Creación de Apps Móviles a Medida.
           </h3>
           <p class="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">
-            Diseñamos e implementamos aplicaciones personalizadas para iOS, Android y Navegadores. Construimos productos escalables con gestión de roles, paneles administrativos y bases de datos en tiempo real.
+            Diseñamos y desarrollamos aplicaciones móviles nativas y multiplataforma optimizadas para iOS y Android. Construimos experiencias fluidas con Flutter, integrando autenticación segura, notificaciones y bases de datos sincronizadas en tiempo real.
           </p>
           <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
             <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> Flutter / Mobile
+              <span class="text-emerald-400 font-bold">✓</span> Flutter Framework
             </div>
             <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> Supabase / PostgreSQL
+              <span class="text-emerald-400 font-bold">✓</span> iOS & Android Ready
             </div>
             <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> API REST / Node.js
+              <span class="text-emerald-400 font-bold">✓</span> Push Notifications
             </div>
             <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> Rol & Auth Control
+              <span class="text-emerald-400 font-bold">✓</span> UI/UX de Alto Impacto
             </div>
           </div>
           <a href="#contacto" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-500/20">
-            Cotizar Aplicación
+            Cotizar App Móvil
           </a>
         </div>
 
-        <!-- Demostración Visual / Terminal App -->
-        <div class="rounded-2xl bg-cardbg border border-slate-800 p-8 relative shadow-2xl reveal delay-200">
+        <!-- Mockup Visual de Celular (Smartphone UI) -->
+        <div class="flex justify-center reveal delay-200">
+          <div class="w-[280px] h-[520px] rounded-[40px] bg-slate-950 border-4 border-slate-800 p-4 shadow-2xl relative flex flex-col justify-between">
+            <!-- Notch / Isla dinámica del celular -->
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-4 bg-slate-900 rounded-full"></div>
+            
+            <!-- Pantalla interna simulada -->
+            <div class="mt-8 pt-4 flex-grow flex flex-col justify-between font-mono text-xs">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between text-[10px] text-slate-500 border-b border-slate-900 pb-2">
+                  <span>GS Mobile</span>
+                  <span class="text-emerald-400">● Live</span>
+                </div>
+                <div class="p-3 rounded-xl bg-purple-950/30 border border-purple-500/30 text-slate-300">
+                  <p class="text-purple-400 font-bold mb-1">EduControl App</p>
+                  <p class="text-[10px] text-slate-400">Sincronización activa con Supabase DB.</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300">
+                  <p class="text-emerald-400 font-bold mb-1">Roles de Usuario</p>
+                  <p class="text-[10px] text-slate-400">Admin, Docentes y Alumnos conectados.</p>
+                </div>
+              </div>
+              <div class="bg-emerald-500/10 border border-emerald-500/30 p-2.5 rounded-xl text-center text-emerald-400 font-semibold text-[11px]">
+                App Compilada con Éxito
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 2: APPS WEB & MULTIPLATAFORMA (Con Terminal y Badge) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-12 border-t border-slate-800/40">
+        <!-- Terminal Web & Multiplataforma -->
+        <div class="rounded-2xl bg-cardbg border border-slate-800 p-8 relative shadow-2xl reveal order-2 lg:order-1">
           <div class="absolute -top-3 right-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-lg">
             Multiplataforma
           </div>
           <div class="font-mono text-xs space-y-4">
-            <div class="text-slate-500">// Arquitectura EduControl & Mobile App</div>
+            <div class="text-slate-500">// Arquitectura Web & Cloud Sync</div>
             <div class="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-2">
               <div class="flex justify-between text-slate-400 text-[11px]">
-                <span>App Status:</span>
+                <span>Cloud Status:</span>
                 <span class="text-emerald-400 font-semibold">Active Build</span>
               </div>
               <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
@@ -218,11 +253,39 @@
             <div class="space-y-1.5 text-slate-300">
               <p><span class="text-purple-400">const</span> userRoles = [<span class="text-yellow-300">'Admin'</span>, <span class="text-yellow-300">'Teacher'</span>, <span class="text-yellow-300">'Parent'</span>];</p>
               <p><span class="text-purple-400">await</span> supabase.<span class="text-emerald-400">auth</span>.signInWithPassword();</p>
-              <p class="text-slate-500">// Sincronización instantánea con servidor</p>
+              <p class="text-slate-500">// Sincronización instantánea web & app</p>
             </div>
           </div>
         </div>
+
+        <div class="reveal delay-200 order-1 lg:order-2">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Web Architecture & Multiplatform</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+            Aplicaciones Web y Ecosistemas Multiplataforma.
+          </h3>
+          <p class="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">
+            Unificamos la experiencia de tus usuarios conectando tu aplicación móvil con plataformas web robustas en Node.js, Express y bases de datos PostgreSQL o Supabase. Todo centralizado bajo un mismo núcleo tecnológico.
+          </p>
+          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
+            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span> Node.js & Express
+            </div>
+            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span> Supabase / PostgreSQL
+            </div>
+            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span> API REST Seguras
+            </div>
+            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✓</span> Multiplataforma Real
+            </div>
+          </div>
+          <a href="#contacto" class="inline-block bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg">
+            Cotizar Sistema Web
+          </a>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -284,7 +347,7 @@
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: Tabla de Precios y Planes -->
+  <!-- Precios y Planes -->
   <section id="precios" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/40 relative">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
@@ -293,8 +356,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- Plan 1: Web Profesional -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 p-8 flex flex-col justify-between hover:border-slate-700 transition-all reveal delay-100">
           <div>
             <h3 class="text-xl font-bold text-white mb-2">Web Corporativa</h3>
@@ -312,7 +373,6 @@
           </a>
         </div>
 
-        <!-- Plan 2: E-Commerce & LMS (Destacado) -->
         <div class="rounded-2xl bg-cardbg border-2 border-purple-500 p-8 flex flex-col justify-between relative shadow-2xl shadow-purple-500/10 reveal delay-200 scale-105">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-red-600 text-white font-bold text-[10px] tracking-wider uppercase px-4 py-1 rounded-full shadow-lg">
             Más Solicitado
@@ -333,7 +393,6 @@
           </a>
         </div>
 
-        <!-- Plan 3: Software & App a Medida -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 p-8 flex flex-col justify-between hover:border-slate-700 transition-all reveal delay-300">
           <div>
             <h3 class="text-xl font-bold text-white mb-2">App / Software Custom</h3>
@@ -350,7 +409,6 @@
             Consultar Proyecto
           </a>
         </div>
-
       </div>
     </div>
   </section>
