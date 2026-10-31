@@ -11,20 +11,16 @@ const escapeHTML = (str) => str
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
-// Rate limiting simple en memoria (para el plan Hobby de Vercel)
+// Rate limiting simple en memoria
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW = 10 * 60 * 1000; // 10 minutos
-const RATE_LIMIT_MAX = 3; // máximo 3 envíos por IP
+const RATE_LIMIT_MAX = 3; 
 
 function checkRateLimit(ip) {
   const now = Date.now();
   const records = rateLimitMap.get(ip) || [];
   const recent = records.filter(t => now - t < RATE_LIMIT_WINDOW);
-  
-  if (recent.length >= RATE_LIMIT_MAX) {
-    return false;
-  }
-  
+  if (recent.length >= RATE_LIMIT_MAX) return false;
   recent.push(now);
   rateLimitMap.set(ip, recent);
   return true;
@@ -39,7 +35,7 @@ export default async function handler(req, res) {
     const { nombre, email, mensaje, website } = req.body;
     const clientIp = req.headers['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress;
 
-    // 🍯 Honeypot: si el campo oculto tiene contenido, es un bot
+    // 🍯 Honeypot
     if (website) {
       console.log(`🍯 Bot detectado y descartado (honeypot) desde IP: ${clientIp}`);
       return res.status(200).json({ success: true, message: 'Mensaje recibido correctamente' });
@@ -47,7 +43,6 @@ export default async function handler(req, res) {
 
     // 🛡️ Rate limiting
     if (!checkRateLimit(clientIp)) {
-      console.log(`⚠️ Rate limit excedido desde IP: ${clientIp}`);
       return res.status(429).json({ error: 'Demasiados intentos. Intenta de nuevo en unos minutos.' });
     }
 
@@ -55,27 +50,24 @@ export default async function handler(req, res) {
     if (!nombre || !email || !mensaje) {
       return res.status(400).json({ error: 'Todos los campos son requeridos' });
     }
-
     if (nombre.length > 100 || mensaje.length > 2000) {
       return res.status(400).json({ error: 'Los campos exceden la longitud permitida' });
     }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ error: 'El email no es válido' });
     }
 
-    // Sanitizar datos antes de usarlos en el HTML
+    // Sanitizar datos
     const safeNombre = escapeHTML(nombre);
     const safeEmail = escapeHTML(email);
     const safeMensaje = escapeHTML(mensaje).replace(/\n/g, '<br>');
 
-    // ⚠️ IMPORTANTE: Cambia esto por la dirección de email que quieras usar de tu dominio
-    // Ejemplos válidos: contacto@gscreativo.com, hola@gscreativo.com, info@gscreativo.com
-    const FROM_EMAIL = 'GS CREATIVO <contacto@gscreativo.com>';
-
-    const { data, error } = await resend.emails.send({
-      from: FROM_EMAIL,
+    // =========================================================
+    // 1. CORREO PARA TI (Notificación de Lead)
+    // =========================================================
+    const { error: adminError } = await resend.emails.send({
+      from: 'GS CREATIVO <contacto@gscreativo.com>',
       to: ['gussem7@gmail.com'],
       replyTo: email,
       subject: `🚀 Nuevo contacto de ${safeNombre} - GS CREATIVO`,
@@ -123,12 +115,76 @@ export default async function handler(req, res) {
       `
     });
 
-    if (error) {
-      console.error('Error de Resend:', error);
-      return res.status(500).json({ error: 'Error al enviar el email' });
+    if (adminError) {
+      console.error('Error al enviar a Admin:', adminError);
+      return res.status(500).json({ error: 'Error al enviar el email principal' });
+    }
+    console.log(`✅ Lead enviado a gussem7@gmail.com desde IP: ${clientIp}`);
+
+    // =========================================================
+    // 2. AUTO-RESPONDER PARA EL CLIENTE (Confirmación)
+    // =========================================================
+    try {
+      await resend.emails.send({
+        from: 'GS CREATIVO <contacto@gscreativo.com>',
+        to: [email], // Usamos el email original sin sanitizar para el envío
+        subject: '¡Hemos recibido tu mensaje! 🚀 - GS CREATIVO',
+        html: `
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <meta charset="UTF-8">
+          <style>
+            body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #334155; background-color: #f8fafc; margin: 0; padding: 20px; }
+            .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0; }
+            .header { background: linear-gradient(135deg, #9333ea, #4f46e5); color: white; padding: 40px 30px; text-align: center; }
+            .header h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+            .content { padding: 40px 30px; }
+            .content h2 { color: #0f172a; margin-top: 0; font-size: 20px; }
+            .message-box { background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #9333ea; margin: 25px 0; font-style: italic; color: #475569; }
+            .cta { text-align: center; margin-top: 30px; }
+            .btn { display: inline-block; background: linear-gradient(135deg, #9333ea, #4f46e5); color: #ffffff !important; text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 14px; box-shadow: 0 4px 6px -1px rgba(147, 51, 234, 0.3); }
+            .footer { text-align: center; padding: 25px; font-size: 12px; color: #94a3b8; border-top: 1px solid #f1f5f9; background: #fafafa; }
+          </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="header">
+                <h1>¡Hemos recibido tu mensaje! 🚀</h1>
+              </div>
+              <div class="content">
+                <h2>Hola, ${safeNombre},</h2>
+                <p>Gracias por contactar a <strong>GS CREATIVO</strong>. Queremos confirmarte que hemos recibido correctamente los detalles de tu proyecto.</p>
+                <p>Nuestro equipo lo revisará y te responderemos en un plazo máximo de <strong>24 horas</strong> (¡generalmente mucho antes!).</p>
+                
+                <div class="message-box">
+                  <strong>Tu mensaje:</strong><br>
+                  "${safeMensaje}"
+                </div>
+
+                <p>Si tienes más detalles que quieras agregar o archivos que mostrar, simplemente puedes <strong>responder a este correo</strong> y me llegará directamente.</p>
+                
+                <div class="cta">
+                  <a href="https://gscreativo.com" class="btn">Volver al sitio web</a>
+                </div>
+              </div>
+              <div class="footer">
+                © 2026 GS CREATIVO. Todos los derechos reservados.<br>
+                Desarrollo Web & Soluciones Digitales.
+              </div>
+            </div>
+          </body>
+          </html>
+        `
+      });
+      console.log(`📧 Auto-responder enviado correctamente a ${email}`);
+    } catch (clientErr) {
+      // Si falla el auto-responder (ej. el cliente puso un email falso), 
+      // solo lo registramos en los logs pero NO detenemos el éxito del formulario.
+      console.error(`⚠️ No se pudo enviar el auto-responder a ${email}:`, clientErr);
     }
 
-    console.log(`✅ Email enviado correctamente a gussem7@gmail.com desde IP: ${clientIp}`);
+    // Respuesta final al Frontend
     res.status(200).json({ success: true, message: 'Mensaje enviado correctamente' });
 
   } catch (error) {
