@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            darkbg: '#030712',
-            cardbg: '#0b0f19'
+            lightbg: '#f8fafc',
+            cardbg: '#ffffff',
+            heading: '#0f172a',
+            bodytext: '#334155'
           }
         }
       }
@@ -35,122 +36,125 @@
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
 
-    /* Perspectiva 3D Estática Ultrafast */
+    /* Perspectiva 3D Estática Ultrafast en Modo Claro */
     .perspective-container {
       perspective: 1000px;
     }
     .phone-3d {
-      transform: rotateY(-18deg) rotateX(10deg) rotateZ(3deg);
+      transform: rotateY(-16deg) rotateX(8deg) rotateZ(2deg);
     }
     .dashboard-3d {
       transform: rotateY(12deg) rotateX(6deg);
     }
   </style>
 </head>
-<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="bg-lightbg text-bodytext font-sans antialiased selection:bg-purple-600 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
 
   <!-- Header / Navbar -->
-  <header class="w-full border-b border-slate-800/80 backdrop-blur-md bg-darkbg/80 fixed top-0 z-50">
+  <header class="w-full border-b border-slate-200/80 backdrop-blur-md bg-white/80 fixed top-0 z-50 transition-all">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-400 p-[2px] flex items-center justify-center shadow-lg shadow-purple-500/20">
-          <div class="h-full w-full bg-slate-950 rounded-[10px] flex items-center justify-center font-bold text-lg text-white">GS</div>
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-500 to-blue-500 p-[2px] flex items-center justify-center shadow-md shadow-purple-500/20">
+          <div class="h-full w-full bg-slate-900 rounded-[10px] flex items-center justify-center font-bold text-lg text-white">GS</div>
         </div>
-        <span class="font-extrabold tracking-wider text-lg bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">GS CREATIVO</span>
+        <span class="font-extrabold tracking-wider text-lg text-slate-900">GS CREATIVO</span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
-        <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-        <a href="#apps" class="hover:text-white transition-colors">Desarrollo Apps</a>
-        <a href="#portafolio" class="hover:text-white transition-colors">Portafolio</a>
-        <a href="#precios" class="hover:text-white transition-colors">Precios</a>
-        <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600 font-medium">
+        <a href="#servicios" class="hover:text-purple-600 transition-colors">Servicios</a>
+        <a href="#apps" class="hover:text-purple-600 transition-colors">Desarrollo Apps</a>
+        <a href="#portafolio" class="hover:text-purple-600 transition-colors">Portafolio</a>
+        <a href="#precios" class="hover:text-purple-600 transition-colors">Precios</a>
+        <a href="#contacto" class="hover:text-purple-600 transition-colors">Contacto</a>
       </nav>
-      <a href="#contacto" class="bg-white text-slate-950 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+      <a href="#contacto" class="bg-slate-900 text-white font-semibold px-6 py-2.5 rounded-full text-sm hover:bg-purple-600 transition-all shadow-md shadow-slate-900/10">
         Conversemos
       </a>
     </div>
   </header>
 
-  <!-- Hero Section Centrado (Luz Difuminada Sin Línea Superior ni Inferior) -->
-  <section class="relative flex-grow flex items-center justify-center pt-36 pb-20 px-6 overflow-hidden">
-    <!-- Luz Resplandeciente Gradual -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-gradient-to-tr from-purple-600/20 via-red-500/15 to-yellow-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+  <!-- Hero Section Centrado (Fondo Claro con Luces de Gradiente Suaves) -->
+  <section class="relative flex-grow flex items-center justify-center pt-36 pb-24 px-6 overflow-hidden">
+    <!-- Luces de fondo difuminadas -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-gradient-to-tr from-purple-200/50 via-blue-200/40 to-indigo-100/60 rounded-full blur-[100px] pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8 backdrop-blur-md shadow-lg shadow-purple-500/10">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-200 bg-purple-50 text-purple-700 text-xs font-semibold mb-8 shadow-sm">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
         Disponible para nuevos proyectos web & apps
       </div>
 
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-slate-900">
         Desarrollo web y software <br>
-        <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">de alto nivel.</span>
+        <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">de alto nivel.</span>
       </h1>
 
-      <div class="max-w-2xl mx-auto mb-10 p-4 rounded-xl bg-slate-950/90 border border-slate-800 font-mono text-sm sm:text-base text-left shadow-2xl backdrop-blur-md min-h-[70px] flex items-center justify-center">
+      <!-- Consola de Sintaxis en Modo Claro -->
+      <div class="max-w-2xl mx-auto mb-10 p-4 rounded-2xl bg-white border border-slate-200/90 font-mono text-sm sm:text-base text-left shadow-xl shadow-slate-200/60 backdrop-blur-md min-h-[70px] flex items-center justify-center">
         <div class="text-center w-full">
-          <span class="text-purple-400">const</span> <span class="text-yellow-300">stack</span> <span class="text-red-400">=</span> <span class="text-slate-400">[</span><span id="hero-typing-text" class="text-emerald-400"></span><span class="animate-pulse text-purple-400 font-bold">|</span><span class="text-slate-400">];</span>
+          <span class="text-purple-600 font-bold">const</span> <span class="text-blue-600 font-bold">stack</span> <span class="text-slate-700 font-bold">=</span> <span class="text-slate-500">[</span><span id="hero-typing-text" class="text-emerald-600 font-semibold"></span><span class="animate-pulse text-purple-600 font-bold">|</span><span class="text-slate-500">];</span>
         </div>
       </div>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
+        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-95 transition-all shadow-xl shadow-purple-600/20">
           Iniciar Proyecto
         </a>
-        <a href="#portafolio" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all">
+        <a href="#portafolio" class="w-full sm:w-auto bg-white border border-slate-300 text-slate-700 font-semibold px-8 py-4 rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-all shadow-sm">
           Ver Trabajos
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Servicios / Bento Grid Centrado con Logo Oficial WordPress (Sin Línea de División) -->
-  <section id="servicios" class="py-20 px-6 relative bg-slate-950/30">
+  <!-- Servicios / Bento Grid Centrado con Logos Vectoriales Oficiales -->
+  <section id="servicios" class="py-20 px-6 relative bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Especialidades</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white min-h-[50px]">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3">Especialidades</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 min-h-[50px]">
           <span id="type-servicios" class="type-target" data-text="Soluciones Digitales a Medida"></span>
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- Tarjeta 1: WordPress (Logo Oficial W Nítido + Texto Centrado) -->
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-purple-500/50 transition-all duration-300 shadow-xl group reveal delay-100 flex flex-col items-center text-center">
-          <div class="w-16 h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <!-- Logo Oficial WordPress "W" -->
-            <svg class="w-9 h-9 text-purple-400 fill-current" viewBox="0 0 24 24">
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12C24 5.373 18.627 0 12 0zm0 1.163c5.987 0 10.837 4.85 10.837 10.837 0 2.45-.815 4.71-2.193 6.524l-3.376-9.754c.482-.24.962-.435 1.442-.435.32 0 .56.08.56.4 0 .24-.16.56-.24.8l-1.04 3.12 2.32 6.72c1.68-1.92 2.713-4.433 2.713-7.382 0-5.32-4.32-9.64-9.64-9.64H12zm-7.63 4.2c.8.08 1.44.16 1.44.64 0 .32-.24.72-.4 1.12L2.73 15.08C1.73 13.16 1.16 10.96 1.16 8.64c0-2.48.84-4.76 2.24-6.56l.97 3.283zM12 22.837c-2.36 0-4.54-.76-6.32-2.04l4.24-12.32 3.8 11.04.12.32c-.56.64-1.16.96-1.84.96zm4.84-1.76-2.04-5.92 2.08-6.04c.4.08.8.16 1.2.16.4 0 .72-.08 1.04-.24l-2.28 12.04zm3.92-1.96-1.52-4.4 1.44-4.24c.4.08.76.16 1.08.16.32 0 .56-.08.84-.24-.44 3.08-1.84 5.76-3.84 8.72z"/>
+        <!-- Tarjeta 1: WordPress & WooCommerce (Icono E-Commerce / Tienda Digital Limpio) -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-400 transition-all duration-300 shadow-lg shadow-slate-100 hover:shadow-xl group reveal delay-100 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <!-- Icono de Tienda Digital / E-Commerce Limpio & Legible -->
+            <svg class="w-9 h-9 text-blue-600 fill-none stroke-current stroke-2 stroke-linecap-round stroke-linejoin-round" viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">WordPress & WooCommerce</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Implementaciones personalizadas, maquetación avanzada con Elementor Pro y optimización extrema de velocidad.
+          <h3 class="text-xl font-bold text-slate-900 mb-3">WordPress & WooCommerce</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Implementaciones personalizadas, maquetación avanzada con Elementor Pro y optimización extrema de velocidad de carga.
           </p>
         </div>
 
-        <!-- Tarjeta 2: Full-Stack (Texto Centrado) -->
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 shadow-xl group reveal delay-200 flex flex-col items-center text-center">
-          <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-9 h-9 text-emerald-400 fill-current" viewBox="0 0 24 24">
+        <!-- Tarjeta 2: Full-Stack (Logo Oficial Node.js / Hexágono Vectorial) -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-300 transition-all duration-300 shadow-lg shadow-slate-100 group reveal delay-200 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-9 h-9 fill-[#026e00]" viewBox="0 0 24 24">
               <path d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2zm8 13.5l-8 4.4-8-4.4v-7l8-4.4 8 4.4v7zM11 9h2v6h-2z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Desarrollo Full-Stack</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Sistemas web dinámicos construidos con Node.js, Express, PostgreSQL y arquitecturas escalables.
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Desarrollo Full-Stack</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Sistemas web dinámicos construidos con Node.js, Express, PostgreSQL y arquitecturas escalables y seguras.
           </p>
         </div>
 
-        <!-- Tarjeta 3: LMS (Texto Centrado) -->
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-yellow-500/50 transition-all duration-300 shadow-xl group reveal delay-300 flex flex-col items-center text-center">
-          <div class="w-16 h-16 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-9 h-9 text-yellow-400 fill-current" viewBox="0 0 24 24">
+        <!-- Tarjeta 3: LMS (Ícono Educación Vectorial) -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-300 transition-all duration-300 shadow-lg shadow-slate-100 group reveal delay-300 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-9 h-9 fill-[#d97706]" viewBox="0 0 24 24">
               <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.5l-7-3.82v4.32C5 18.66 8.13 20 12 20s7-1.34 7-2.99v-4.32l-7 3.82z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Plataformas LMS & EduControl</h3>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Plataformas LMS & EduControl</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
             Plataformas educativas integradas con LearnDash, gestión de roles de usuarios y paneles administrativos.
           </p>
@@ -160,53 +164,53 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE APPS (Optimizado Render Ultra-Fluido Sin Tirones) -->
-  <section id="apps" class="py-20 px-6 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto space-y-24">
+  <!-- SECCIÓN DE APPS (Modo Claro) -->
+  <section id="apps" class="py-24 px-6 relative overflow-hidden bg-slate-50/70">
+    <div class="max-w-6xl mx-auto space-y-28">
       
-      <!-- BLOQUE 1: APPS MÓVILES + CELULAR 3D -->
+      <!-- BLOQUE 1: APPS MÓVILES + MOCKUP DE CELULAR 3D EN MODO CLARO -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
         <div class="reveal">
-          <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Mobile Development</h2>
-          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-3">Mobile Development</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
             Creación de Apps Móviles a Medida.
           </h3>
-          <p class="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">
+          <p class="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
             Diseñamos y desarrollamos aplicaciones móviles nativas y multiplataforma optimizadas para iOS y Android con Flutter y backend sincronizado.
           </p>
-          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> Flutter Framework
+          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-700 mb-8">
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> Flutter Framework
             </div>
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> iOS & Android Ready
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> iOS & Android Ready
             </div>
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> Push Notifications
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> Push Notifications
             </div>
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✓</span> UI/UX de Alto Impacto
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-emerald-600 font-bold">✓</span> UI/UX de Alto Impacto
             </div>
           </div>
-          <a href="#contacto" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-500/20">
+          <a href="#contacto" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20">
             Cotizar App Móvil
           </a>
         </div>
 
-        <!-- Celular 3D -->
+        <!-- Smartphone Mockup 3D (Modo Claro) -->
         <div class="perspective-container flex justify-center relative reveal delay-100">
-          <div class="phone-3d w-[270px] h-[500px] rounded-[40px] bg-slate-900 border-[6px] border-slate-700/80 p-3 shadow-2xl relative flex flex-col justify-between">
+          <div class="phone-3d w-[270px] h-[500px] rounded-[40px] bg-slate-900 border-[6px] border-slate-800 p-3 shadow-2xl relative flex flex-col justify-between">
             <div class="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-20"></div>
 
-            <div class="mt-4 w-full h-full bg-slate-50 rounded-[28px] p-5 text-slate-900 flex flex-col justify-between z-10 font-sans">
+            <div class="mt-4 w-full h-full bg-slate-50 rounded-[28px] p-5 text-slate-900 flex flex-col justify-between z-10 font-sans shadow-inner">
               <div>
                 <div class="flex items-center justify-between text-xs text-slate-500 pt-3 pb-3 border-b border-slate-200">
                   <span class="font-bold text-slate-900">EduControl Mobile</span>
-                  <span class="bg-emerald-100 text-emerald-700 text-[9px] font-bold px-2 py-0.5 rounded-full">En Vivo</span>
+                  <span class="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full">En Vivo</span>
                 </div>
 
                 <div class="mt-4 space-y-3">
-                  <div class="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                  <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
                     <p class="text-[10px] text-slate-400 font-semibold uppercase">Usuarios Activos</p>
                     <p class="text-2xl font-black text-slate-900 mt-1">1,482</p>
                     <div class="mt-2 flex items-center gap-1 text-[10px] text-emerald-600 font-bold">
@@ -232,67 +236,67 @@
         </div>
       </div>
 
-      <!-- BLOQUE 2: DASHBOARD MULTIPLATAFORMA -->
+      <!-- BLOQUE 2: DASHBOARD MULTIPLATAFORMA EN MODO CLARO -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
         <div class="perspective-container relative reveal order-2 lg:order-1">
-          <div class="dashboard-3d rounded-2xl bg-slate-950/90 border border-cyan-500/40 p-6 relative shadow-2xl shadow-cyan-500/10">
-            <div class="absolute -top-3 right-6 bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 font-black text-[10px] tracking-wider uppercase px-3.5 py-1 rounded-full shadow-lg">
+          <div class="dashboard-3d rounded-2xl bg-white border border-slate-200/90 p-6 relative shadow-2xl shadow-slate-200">
+            <div class="absolute -top-3 right-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black text-[10px] tracking-wider uppercase px-3.5 py-1 rounded-full shadow-md">
               Multiplataforma
             </div>
 
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 font-mono text-xs">
-              <span class="text-cyan-400 font-bold tracking-wider">GS-SYSTEM // CONTROL PANEL</span>
-              <span class="text-slate-500 text-[10px]">LATENCY: 12ms</span>
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4 font-mono text-xs">
+              <span class="text-blue-600 font-bold tracking-wider">GS-SYSTEM // CONTROL PANEL</span>
+              <span class="text-slate-400 text-[10px]">LATENCY: 12ms</span>
             </div>
 
             <div class="grid grid-cols-2 gap-3 mb-4">
-              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-                <span class="text-[10px] font-mono text-slate-400 block mb-1">Rendimiento Sistema</span>
-                <span class="text-lg font-black text-cyan-300">98.4%</span>
-                <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
-                  <div class="bg-cyan-400 h-full w-[98%]"></div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-[10px] font-mono text-slate-500 block mb-1">Rendimiento Sistema</span>
+                <span class="text-lg font-black text-slate-900">98.4%</span>
+                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden">
+                  <div class="bg-blue-600 h-full w-[98%]"></div>
                 </div>
               </div>
-              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-                <span class="text-[10px] font-mono text-slate-400 block mb-1">Tráfico API REST</span>
-                <span class="text-lg font-black text-emerald-400">45.2 TB/s</span>
-                <div class="w-full bg-slate-800 h-1.5 rounded-full mt-2 overflow-hidden">
-                  <div class="bg-emerald-400 h-full w-[85%]"></div>
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-[10px] font-mono text-slate-500 block mb-1">Tráfico API REST</span>
+                <span class="text-lg font-black text-emerald-600">45.2 TB/s</span>
+                <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden">
+                  <div class="bg-emerald-500 h-full w-[85%]"></div>
                 </div>
               </div>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800/80 font-mono text-[11px] space-y-1.5 text-slate-300">
-              <p class="text-slate-500">// Actividad en tiempo real</p>
-              <p><span class="text-cyan-400">✓</span> Auth Token Verified: <span class="text-emerald-400">User #8493</span></p>
-              <p><span class="text-cyan-400">✓</span> Cloud Sync PostgreSQL: <span class="text-yellow-400">Complete</span></p>
+            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-[11px] space-y-1.5 shadow-sm">
+              <p class="text-slate-400">// Actividad en tiempo real</p>
+              <p><span class="text-blue-400">✓</span> Auth Token Verified: <span class="text-emerald-400">User #8493</span></p>
+              <p><span class="text-blue-400">✓</span> Cloud Sync PostgreSQL: <span class="text-amber-400">Complete</span></p>
             </div>
           </div>
         </div>
 
         <div class="reveal delay-100 order-1 lg:order-2">
-          <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-3">Web Architecture & Multiplatform</h2>
-          <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">Web Architecture & Multiplatform</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
             Aplicaciones Web y Ecosistemas Multiplataforma.
           </h3>
-          <p class="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed">
+          <p class="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed">
             Unificamos la experiencia de tus usuarios conectando tu aplicación móvil con plataformas web robustas en Node.js, Express y bases de datos PostgreSQL o Supabase.
           </p>
-          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-cyan-400 font-bold">✓</span> Node.js & Express
+          <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-700 mb-8">
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> Node.js & Express
             </div>
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-cyan-400 font-bold">✓</span> Supabase / PostgreSQL
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> Supabase / PostgreSQL
             </div>
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-cyan-400 font-bold">✓</span> API REST Seguras
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> API REST Seguras
             </div>
-            <div class="p-3 rounded-xl bg-cardbg border border-slate-800 flex items-center gap-2">
-              <span class="text-cyan-400 font-bold">✓</span> Multiplataforma Real
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-sm">
+              <span class="text-blue-600 font-bold">✓</span> Multiplataforma Real
             </div>
           </div>
-          <a href="#contacto" class="inline-block bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-100 font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg">
+          <a href="#contacto" class="inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg">
             Cotizar Sistema Web
           </a>
         </div>
@@ -301,55 +305,57 @@
     </div>
   </section>
 
-  <!-- Portafolio / Proyectos Recientes -->
-  <section id="portafolio" class="py-20 px-6 relative">
+  <!-- Portafolio / Proyectos Recientes (Modo Claro) -->
+  <section id="portafolio" class="py-20 px-6 bg-white relative">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-red-400 mb-3">Casos de Éxito</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white min-h-[50px]">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3">Casos de Éxito</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 min-h-[50px]">
           <span id="type-portafolio" class="type-target" data-text="Proyectos Recientes"></span>
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="rounded-2xl bg-cardbg border border-slate-800/90 overflow-hidden hover:border-purple-500/60 transition-all duration-300 group reveal delay-100 shadow-2xl flex flex-col justify-between">
-          <div class="relative h-56 bg-gradient-to-br from-slate-900 via-purple-950/20 to-slate-900 flex items-center justify-center p-6 overflow-hidden border-b border-slate-800/80">
+        <!-- Proyecto 1 -->
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 transition-all duration-300 group reveal delay-100 shadow-lg shadow-slate-100 flex flex-col justify-between">
+          <div class="relative h-56 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-950 flex items-center justify-center p-6 overflow-hidden">
             <div class="relative z-10 text-center">
               <span class="text-2xl sm:text-3xl font-black text-white tracking-widest group-hover:scale-105 transition-transform duration-300 block">
                 TURISMARS TRAVEL
               </span>
-              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-purple-500/30 text-purple-200 border border-purple-400/30">
                 Agencia de Turismo
               </span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Turismars Travel</h3>
-            <p class="text-slate-400 text-sm mb-6 leading-relaxed">Identidad corporativa, diseño de logotipo minimalista y desarrollo web enfocado en la conversión de clientes.</p>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">Turismars Travel</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">Identidad corporativa, diseño de logotipo minimalista y desarrollo web enfocado en la conversión de clientes.</p>
             <div class="flex items-center gap-2">
-              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Branding</span>
-              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Desarrollo Web</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Branding</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Desarrollo Web</span>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl bg-cardbg border border-slate-800/90 overflow-hidden hover:border-red-500/60 transition-all duration-300 group reveal delay-200 shadow-2xl flex flex-col justify-between">
-          <div class="relative h-56 bg-gradient-to-br from-slate-900 via-red-950/20 to-slate-900 flex items-center justify-center p-6 overflow-hidden border-b border-slate-800/80">
+        <!-- Proyecto 2 -->
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-blue-400 transition-all duration-300 group reveal delay-200 shadow-lg shadow-slate-100 flex flex-col justify-between">
+          <div class="relative h-56 bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 flex items-center justify-center p-6 overflow-hidden">
             <div class="relative z-10 text-center">
               <span class="text-2xl sm:text-3xl font-black text-white tracking-widest group-hover:scale-105 transition-transform duration-300 block">
                 DELIVERY SYSTEM
               </span>
-              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-red-500/20 text-red-300 border border-red-500/30">
+              <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-blue-500/30 text-blue-200 border border-blue-400/30">
                 Plataforma de Pedidos
               </span>
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">Sistema de Pedidos Delivery</h3>
-            <p class="text-slate-400 text-sm mb-6 leading-relaxed">Infraestructura web independiente con subdominios personalizados para la gestión de pedidos y despachos.</p>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Sistema de Pedidos Delivery</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">Infraestructura web independiente con subdominios personalizados para la gestión de pedidos y despachos.</p>
             <div class="flex items-center gap-2">
-              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Node.js</span>
-              <span class="bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-300 px-3 py-1 rounded-full">Express & API</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Node.js</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Express & API</span>
             </div>
           </div>
         </div>
@@ -357,65 +363,68 @@
     </div>
   </section>
 
-  <!-- Precios y Planes -->
-  <section id="precios" class="py-20 px-6 bg-slate-950/40 relative">
+  <!-- Precios y Planes (Modo Claro) -->
+  <section id="precios" class="py-20 px-6 bg-slate-50 relative">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-yellow-400 mb-3">Inversión Transparente</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white">Planes & Soluciones</p>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-amber-600 mb-3">Inversión Transparente</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Planes & Soluciones</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="rounded-2xl bg-cardbg border border-slate-800 p-8 flex flex-col justify-between hover:border-slate-700 transition-all reveal delay-100">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Plan 1 -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-md reveal delay-100">
           <div>
-            <h3 class="text-xl font-bold text-white mb-2">Web Corporativa</h3>
-            <p class="text-slate-400 text-xs mb-6">Ideal para negocios que buscan presencia profesional de alto impacto.</p>
-            <div class="text-3xl font-extrabold text-white mb-6">A cotizar <span class="text-xs text-slate-500 font-normal">/ proyecto</span></div>
-            <ul class="space-y-3 text-xs text-slate-300 mb-8">
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Diseños ultra-rápidos y responsivos</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Optimización SEO inicial</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Integración con WhatsApp y Formulario</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Dominio & Hosting configurados</li>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Web Corporativa</h3>
+            <p class="text-slate-500 text-xs mb-6">Ideal para negocios que buscan presencia profesional de alto impacto.</p>
+            <div class="text-3xl font-extrabold text-slate-900 mb-6">A cotizar <span class="text-xs text-slate-400 font-normal">/ proyecto</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Diseños ultra-rápidos y responsivos</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Optimización SEO inicial</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Integración con WhatsApp y Formulario</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Dominio & Hosting configurados</li>
             </ul>
           </div>
-          <a href="#contacto" class="w-full bg-slate-900 border border-slate-800 text-slate-200 font-semibold py-3 rounded-xl text-center hover:bg-slate-800 transition-all text-xs">
+          <a href="#contacto" class="w-full bg-slate-100 border border-slate-200 text-slate-800 font-semibold py-3 rounded-xl text-center hover:bg-slate-200 transition-all text-xs">
             Seleccionar Plan
           </a>
         </div>
 
-        <div class="rounded-2xl bg-cardbg border-2 border-purple-500 p-8 flex flex-col justify-between relative shadow-2xl shadow-purple-500/10 reveal delay-200 scale-105">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-red-600 text-white font-bold text-[10px] tracking-wider uppercase px-4 py-1 rounded-full shadow-lg">
+        <!-- Plan 2 (Destacado) -->
+        <div class="rounded-2xl bg-white border-2 border-purple-600 p-8 flex flex-col justify-between relative shadow-2xl shadow-purple-600/15 reveal delay-200 scale-105">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-[10px] tracking-wider uppercase px-4 py-1 rounded-full shadow-md">
             Más Solicitado
           </div>
           <div>
-            <h3 class="text-xl font-bold text-white mb-2">E-Commerce & LMS</h3>
-            <p class="text-slate-400 text-xs mb-6">Tiendas online avanzadas o plataformas educativas con LearnDash.</p>
-            <div class="text-3xl font-extrabold text-white mb-6">A cotizar <span class="text-xs text-slate-500 font-normal">/ proyecto</span></div>
-            <ul class="space-y-3 text-xs text-slate-300 mb-8">
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Todo lo de Web Corporativa</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> WooCommerce o LearnDash LMS</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Pasarelas de Pago Integradas</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Panel de Control & Gestión</li>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">E-Commerce & LMS</h3>
+            <p class="text-slate-500 text-xs mb-6">Tiendas online avanzadas o plataformas educativas con LearnDash.</p>
+            <div class="text-3xl font-extrabold text-slate-900 mb-6">A cotizar <span class="text-xs text-slate-400 font-normal">/ proyecto</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Todo lo de Web Corporativa</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> WooCommerce o LearnDash LMS</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Pasarelas de Pago Integradas</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Panel de Control & Gestión</li>
             </ul>
           </div>
-          <a href="#contacto" class="w-full bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold py-3 rounded-xl text-center hover:opacity-90 transition-all shadow-lg text-xs">
+          <a href="#contacto" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-3 rounded-xl text-center hover:opacity-95 transition-all shadow-md text-xs">
             Cotizar Ahora
           </a>
         </div>
 
-        <div class="rounded-2xl bg-cardbg border border-slate-800 p-8 flex flex-col justify-between hover:border-slate-700 transition-all reveal delay-300">
+        <!-- Plan 3 -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-md reveal delay-300">
           <div>
-            <h3 class="text-xl font-bold text-white mb-2">App / Software Custom</h3>
-            <p class="text-slate-400 text-xs mb-6">Aplicaciones móviles o sistemas full-stack hechos a la medida.</p>
-            <div class="text-3xl font-extrabold text-white mb-6">A medida <span class="text-xs text-slate-500 font-normal">/ requerimientos</span></div>
-            <ul class="space-y-3 text-xs text-slate-300 mb-8">
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Node.js, Express, PostgreSQL</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> App Móvil en Flutter</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Autenticación & Roles Custom</li>
-              <li class="flex items-center gap-2"><span class="text-purple-400">✓</span> Arquitectura 100% Escalable</li>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">App / Software Custom</h3>
+            <p class="text-slate-500 text-xs mb-6">Aplicaciones móviles o sistemas full-stack hechos a la medida.</p>
+            <div class="text-3xl font-extrabold text-slate-900 mb-6">A medida <span class="text-xs text-slate-400 font-normal">/ requerimientos</span></div>
+            <ul class="space-y-3 text-xs text-slate-600 mb-8">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Node.js, Express, PostgreSQL</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> App Móvil en Flutter</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Autenticación & Roles Custom</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Arquitectura 100% Escalable</li>
             </ul>
           </div>
-          <a href="#contacto" class="w-full bg-slate-900 border border-slate-800 text-slate-200 font-semibold py-3 rounded-xl text-center hover:bg-slate-800 transition-all text-xs">
+          <a href="#contacto" class="w-full bg-slate-100 border border-slate-200 text-slate-800 font-semibold py-3 rounded-xl text-center hover:bg-slate-200 transition-all text-xs">
             Consultar Proyecto
           </a>
         </div>
@@ -423,28 +432,28 @@
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="py-20 px-6 bg-slate-950/60 reveal">
+  <!-- Contacto (Modo Claro) -->
+  <section id="contacto" class="py-20 px-6 bg-white reveal">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 min-h-[60px] flex items-center justify-center">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-6 min-h-[60px] flex items-center justify-center">
         <span id="type-contacto" class="type-target" data-text="¿Tienes un proyecto en mente?"></span>
       </h2>
-      <p class="text-slate-400 mb-10 text-lg">Transformemos tu idea en un producto web o app funcional y atractiva.</p>
+      <p class="text-slate-600 mb-10 text-lg">Transformemos tu idea en un producto web o app funcional y atractiva.</p>
 
       <form class="space-y-4 text-left max-w-lg mx-auto mb-10">
         <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Tu Nombre</label>
-          <input type="text" placeholder="Ej: Carlos Pérez" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 transition-colors">
+          <label class="block text-xs font-semibold text-slate-600 mb-2 uppercase">Tu Nombre</label>
+          <input type="text" placeholder="Ej: Carlos Pérez" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Tu Correo</label>
-          <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 transition-colors">
+          <label class="block text-xs font-semibold text-slate-600 mb-2 uppercase">Tu Correo</label>
+          <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Mensaje o Detalle del Proyecto</label>
-          <textarea rows="4" placeholder="Cuéntame sobre tu proyecto..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 transition-colors"></textarea>
+          <label class="block text-xs font-semibold text-slate-600 mb-2 uppercase">Mensaje o Detalle del Proyecto</label>
+          <textarea rows="4" placeholder="Cuéntame sobre tu proyecto..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"></textarea>
         </div>
-        <button type="button" class="w-full bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
+        <button type="button" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-4 rounded-xl hover:opacity-95 transition-all shadow-xl shadow-purple-600/20">
           Enviar Mensaje
         </button>
       </form>
@@ -452,11 +461,11 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+  <footer class="border-t border-slate-200/80 py-8 text-center text-xs text-slate-500 bg-slate-50">
     <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Scripts de Animaciones Ultra-Optimizado -->
+  <!-- Scripts de Animaciones -->
   <script>
     const codePhrases = [
       '"Node.js & Express"',
@@ -513,7 +522,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       setTimeout(typeCodeHero, 600);
 
-      // IntersectionObserver optimizado: Desconecta el elemento tras animarlo para 0% consumo de CPU
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
