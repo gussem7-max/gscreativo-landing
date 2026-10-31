@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GS Creativo | Desarrollo Web de Alto Nivel</title>
+  <title>GS CREATIVO | Desarrollo Web & Soluciones Digitales</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -13,6 +13,7 @@
         extend: {
           colors: {
             darkbg: '#030712',
+            cardbg: '#0b0f19'
           }
         }
       }
@@ -24,16 +25,17 @@
   <!-- Header / Navbar -->
   <header class="w-full border-b border-slate-800/80 backdrop-blur-md bg-darkbg/80 fixed top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <!-- Espacio para tu logo -->
-        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-400 p-[2px] flex items-center justify-center">
+      <a href="#" class="flex items-center gap-3">
+        <!-- Logo en Imagen (Si subes logo.png a tu repo, cambia la ruta aquí) -->
+        <!-- <img src="logo.png" alt="GS Creativo Logo" class="h-10 w-auto"> -->
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-400 p-[2px] flex items-center justify-center shadow-lg shadow-purple-500/20">
           <div class="h-full w-full bg-slate-950 rounded-[10px] flex items-center justify-center font-bold text-lg text-white">GS</div>
         </div>
         <span class="font-extrabold tracking-wider text-lg bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">GS CREATIVO</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
         <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+        <a href="#portafolio" class="hover:text-white transition-colors">Portafolio</a>
         <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
       </nav>
       <a href="#contacto" class="bg-white text-slate-950 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
@@ -43,42 +45,152 @@
   </header>
 
   <!-- Hero Section -->
-  <main class="flex-grow flex items-center justify-center pt-32 pb-16 px-6">
+  <section class="flex-grow flex items-center justify-center pt-36 pb-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
       
-      <!-- Badge de disponibilidad -->
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         Disponible para nuevos proyectos web
       </div>
 
-      <!-- Título principal -->
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
         Desarrollo web con <br>
         <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
       </h1>
 
-      <!-- Subtítulo -->
       <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Creamos experiencias digitales rápidas, modernas y optimizadas. Especialistas en arquitecturas robustas y código limpio.
+        Especialista en arquitecturas robustas, integraciones a medida y plataformas optimizadas para maximizar conversión y velocidad.
       </p>
 
-      <!-- Botones de acción -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-medium px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
+        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
           Iniciar Proyecto
         </a>
-        <a href="#proyectos" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-medium px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all">
+        <a href="#portafolio" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all">
           Ver Trabajos
         </a>
       </div>
 
     </div>
-  </main>
+  </section>
+
+  <!-- Servicios / Bento Grid Section -->
+  <section id="servicios" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/40">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Especialidades</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white">Soluciones Digitales a Medida</p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Tarjeta 1: WordPress & WooCommerce -->
+        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
+          <h3 class="text-xl font-bold text-white mb-3">WordPress & WooCommerce</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Implementaciones personalizadas, maquetación avanzada con Elementor y optimización extrema de rendimiento.
+          </p>
+        </div>
+
+        <!-- Tarjeta 2: Aplicaciones Web Full-Stack -->
+        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
+          <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl mb-6 group-hover:scale-110 transition-transform">💻</div>
+          <h3 class="text-xl font-bold text-white mb-3">Desarrollo Full-Stack</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Sistemas web dinámicos con arquitecturas modernas en Node.js, Express, PostgreSQL y frontend responsivo.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3: E-Learning & LMS -->
+        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 transition-transform">🎓</div>
+          <h3 class="text-xl font-bold text-white mb-3">Plataformas EduControl & LMS</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Plataformas educativas integradas con LearnDash, gestión de roles de usuarios y paneles administrativos.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Portafolio / Proyectos Destacados -->
+  <section id="portafolio" class="py-20 px-6 border-t border-slate-800/60">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-red-400 mb-3">Casos de Éxito</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white">Proyectos Recientes</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Proyecto 1 -->
+        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group">
+          <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
+            <span class="text-4xl font-black text-slate-700 group-hover:text-purple-400 transition-colors">PROJECT #1</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Turismars Travel</h3>
+            <p class="text-slate-400 text-sm mb-4">Identidad corporativa y desarrollo web enfocado en la conversión de clientes.</p>
+            <span class="inline-block bg-slate-900 border border-slate-800 text-xs text-slate-300 px-3 py-1 rounded-full">Branding & Web</span>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group">
+          <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
+            <span class="text-4xl font-black text-slate-700 group-hover:text-red-400 transition-colors">PROJECT #2</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Sistema de Pedidos Delivery</h3>
+            <p class="text-slate-400 text-sm mb-4">Infraestructura web independiente con subdominios personalizados para pedidos en línea.</p>
+            <span class="inline-block bg-slate-900 border border-slate-800 text-xs text-slate-300 px-3 py-1 rounded-full">Node.js & Express</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto / CTA -->
+  <section id="contacto" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/60">
+    <div class="max-w-3xl mx-auto text-center">
+      
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">
+        ¿Tienes un proyecto en mente?
+      </h2>
+      <p class="text-slate-400 mb-10 text-lg">
+        Transformemos tu idea en un producto web funcional y atractivo.
+      </p>
+
+      <form class="space-y-4 text-left max-w-lg mx-auto mb-10">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Tu Nombre</label>
+          <input type="text" placeholder="Ej: Carlos Pérez" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Tu Correo</label>
+          <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 transition-colors">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Mensaje o Detalle del Proyecto</label>
+          <textarea rows="4" placeholder="Cuéntame sobre tu proyecto..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 transition-colors"></textarea>
+        </div>
+        <button type="button" class="w-full bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
+          Enviar Mensaje
+        </button>
+      </form>
+
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
-    <p>© 2026 GS Creativo. Todos los derechos reservados.</p>
+    <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
   </footer>
 
 </body>
