@@ -20,7 +20,7 @@
     }
   </script>
   <style>
-    /* Animación de entrada suave para el scroll */
+    /* Transiciones de Scroll Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -30,7 +30,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Retardo para que las tarjetas entren en cascada */
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
@@ -58,29 +57,33 @@
     </div>
   </header>
 
-  <!-- Hero Section Centrado con Fondo con Luz de neón y Subtítulo Mecanografiado -->
+  <!-- Hero Section Centrado con Fondo Resplandeciente Visible -->
   <section class="relative flex-grow flex items-center justify-center pt-36 pb-24 px-6 overflow-hidden">
-    <!-- Luces de Fondo (Glow Effect) -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+    
+    <!-- Luces e iluminación de fondo súper visibles -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-red-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-1/4 w-[350px] h-[350px] bg-yellow-500/15 rounded-full blur-[100px] pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto text-center relative z-10">
       
       <!-- Badge de disponibilidad -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8 backdrop-blur-sm">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8 backdrop-blur-md shadow-lg shadow-purple-500/10">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         Disponible para nuevos proyectos web
       </div>
 
-      <!-- Título principal -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+      <!-- Título principal en degradado -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
         Desarrollo web con <br>
         <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
       </h1>
 
-      <!-- Subtítulo con Efecto Máquina de Escribir -->
-      <div class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed min-h-[60px] flex items-center justify-center">
-        <p><span id="typing-text" class="text-slate-200 font-medium"></span><span class="animate-pulse text-purple-400 font-bold">|</span></p>
+      <!-- Subtítulo con Efecto de Código / Sintaxis de Programación -->
+      <div class="max-w-2xl mx-auto mb-10 p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 font-mono text-sm sm:text-base text-left shadow-2xl backdrop-blur-md min-h-[70px] flex items-center">
+        <div class="w-full">
+          <span class="text-purple-400">const</span> <span class="text-yellow-300">stack</span> <span class="text-red-400">=</span> <span class="text-slate-400">[</span><span id="hero-typing-text" class="text-emerald-400"></span><span class="animate-pulse text-purple-400 font-bold">|</span><span class="text-slate-400">];</span>
+        </div>
       </div>
 
       <!-- Botones de acción -->
@@ -102,33 +105,50 @@
       
       <div class="text-center mb-16 reveal">
         <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Especialidades</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white">Soluciones Digitales a Medida</p>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white min-h-[50px]">
+          <span id="type-servicios" class="type-target" data-text="Soluciones Digitales a Medida"></span>
+        </p>
       </div>
 
-      <!-- Bento Grid con Entrada en Cascada -->
+      <!-- Bento Grid con Tarjeta Terminal (Botones rojo, amarillo, verde) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-purple-500/50 transition-all duration-300 shadow-xl group reveal delay-100 hover:-translate-y-1">
-          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
-          <h3 class="text-xl font-bold text-white mb-3">WordPress & WooCommerce</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Implementaciones personalizadas, maquetación avanzada y optimización extrema de rendimiento.
-          </p>
+        <!-- Tarjeta estilo Terminal Mac (Rojo, Amarillo, Verde) -->
+        <div class="rounded-2xl bg-cardbg border border-slate-800 hover:border-purple-500/50 transition-all duration-300 shadow-xl overflow-hidden reveal delay-100 hover:-translate-y-1 flex flex-col justify-between">
+          <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500">wordpress.config.js</span>
+          </div>
+          <div class="p-6 font-mono text-xs text-slate-300 space-y-2">
+            <p class="text-slate-500">// WooCommerce & Elementor</p>
+            <p><span class="text-purple-400">import</span> { Performance } <span class="text-purple-400">from</span> <span class="text-emerald-400">'@gscreativo'</span>;</p>
+            <p class="text-yellow-400">Optimizing speed & conversions...</p>
+          </div>
+          <div class="p-6 pt-0">
+            <h3 class="text-xl font-bold text-white mb-2">WordPress & WooCommerce</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Implementaciones personalizadas, maquetación limpia y optimización extrema de carga.</p>
+          </div>
         </div>
 
+        <!-- Tarjeta 2: Full-Stack -->
         <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-red-500/50 transition-all duration-300 shadow-xl group reveal delay-200 hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl mb-6 group-hover:scale-110 transition-transform">💻</div>
           <h3 class="text-xl font-bold text-white mb-3">Desarrollo Full-Stack</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
-            Sistemas web dinámicos con Node.js, Express, bases de datos y frontend responsivo.
+            Sistemas web dinámicos con Node.js, Express, PostgreSQL y arquitecturas escalables.
           </p>
         </div>
 
+        <!-- Tarjeta 3: LMS -->
         <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-yellow-500/50 transition-all duration-300 shadow-xl group reveal delay-300 hover:-translate-y-1">
           <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 transition-transform">🎓</div>
           <h3 class="text-xl font-bold text-white mb-3">Plataformas LMS & EduControl</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
-            Plataformas educativas integradas con LearnDash y gestión avanzada de roles de usuario.
+            Plataformas educativas integradas con LearnDash y gestión avanzada de usuarios.
           </p>
         </div>
 
@@ -142,14 +162,25 @@
       
       <div class="text-center mb-16 reveal">
         <h2 class="text-xs font-bold uppercase tracking-widest text-red-400 mb-3">Casos de Éxito</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-white">Proyectos Recientes</p>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white min-h-[50px]">
+          <span id="type-portafolio" class="type-target" data-text="Proyectos Recientes"></span>
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
+        <!-- Tarjeta Proyecto 1 estilo Terminal -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-purple-500/40 transition-all duration-300 group reveal delay-100 hover:-translate-y-1">
-          <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
-            <span class="text-4xl font-black text-slate-700 group-hover:text-purple-400 transition-colors">PROJECT #1</span>
+          <div class="bg-slate-900/80 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500">turismars-travel.com</span>
+          </div>
+          <div class="h-44 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
+            <span class="text-3xl font-black text-slate-700 group-hover:text-purple-400 transition-colors">TURISMARS TRAVEL</span>
           </div>
           <div class="p-6">
             <h3 class="text-xl font-bold text-white mb-2">Turismars Travel</h3>
@@ -158,9 +189,18 @@
           </div>
         </div>
 
+        <!-- Tarjeta Proyecto 2 estilo Terminal -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-red-500/40 transition-all duration-300 group reveal delay-200 hover:-translate-y-1">
-          <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
-            <span class="text-4xl font-black text-slate-700 group-hover:text-red-400 transition-colors">PROJECT #2</span>
+          <div class="bg-slate-900/80 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500">delivery-app.js</span>
+          </div>
+          <div class="h-44 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
+            <span class="text-3xl font-black text-slate-700 group-hover:text-red-400 transition-colors">DELIVERY SYSTEM</span>
           </div>
           <div class="p-6">
             <h3 class="text-xl font-bold text-white mb-2">Sistema de Pedidos Delivery</h3>
@@ -176,7 +216,10 @@
   <!-- Contacto -->
   <section id="contacto" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/60 reveal">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">¿Tienes un proyecto en mente?</h2>
+      
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 min-h-[60px] flex items-center justify-center">
+        <span id="type-contacto" class="type-target" data-text="¿Tienes un proyecto en mente?"></span>
+      </h2>
       <p class="text-slate-400 mb-10 text-lg">Transformemos tu idea en un producto web funcional y atractivo.</p>
 
       <form class="space-y-4 text-left max-w-lg mx-auto mb-10">
@@ -204,58 +247,81 @@
     <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Scripts para Animaciones JS -->
+  <!-- Scripts de Animaciones -->
   <script>
-    // 1. Script para el Subtítulo de Máquina de Escribir
-    const phrases = [
-      "Creamos experiencias digitales rápidas, modernas y optimizadas.",
-      "Especialistas en arquitecturas robustas en Node.js y WordPress.",
-      "Desarrollamos soluciones a medida para hacer crecer tu negocio."
+    // 1. Escritura de Sintaxis de Código para el Hero Subtítulo
+    const codePhrases = [
+      '"Node.js"',
+      '"WordPress & WooCommerce"',
+      '"High Performance Apps"',
+      '"LearnDash LMS"'
     ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingElement = document.getElementById("typing-text");
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeletingCode = false;
+    const heroTypingEl = document.getElementById("hero-typing-text");
 
-    function typeEffect() {
-      const currentPhrase = phrases[phraseIndex];
-
-      if (isDeleting) {
-        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
+    function typeCodeHero() {
+      const current = codePhrases[phraseIdx];
+      if (isDeletingCode) {
+        heroTypingEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
       } else {
-        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
+        heroTypingEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
       }
 
-      let speed = isDeleting ? 30 : 50;
+      let speed = isDeletingCode ? 40 : 80;
 
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        speed = 2500; // Pausa cuando termina de escribir la frase
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        speed = 500;
+      if (!isDeletingCode && charIdx === current.length) {
+        speed = 2000;
+        isDeletingCode = true;
+      } else if (isDeletingCode && charIdx === 0) {
+        isDeletingCode = false;
+        phraseIdx = (phraseIdx + 1) % codePhrases.length;
+        speed = 400;
       }
 
-      setTimeout(typeEffect, speed);
+      setTimeout(typeCodeHero, speed);
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(typeEffect, 800);
+    // 2. Función para escribir Títulos en Blanco cuando entren al Scroll
+    function typeSectionTitle(element) {
+      if (element.classList.contains("typed-done")) return;
+      element.classList.add("typed-done");
+
+      const fullText = element.getAttribute("data-text");
+      let idx = 0;
       
-      // 2. Script IntersectionObserver para las Entradas al Scroll (Scroll Reveal)
-      const reveals = document.querySelectorAll(".reveal");
+      function write() {
+        if (idx < fullText.length) {
+          element.textContent += fullText.charAt(idx);
+          idx++;
+          setTimeout(write, 40);
+        }
+      }
+      write();
+    }
+
+    // 3. Scroll Reveal e IntersectionObserver
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeCodeHero, 600);
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
+
+            // Si la sección contiene un título con efecto de escritura, iniciarlo
+            const titleTarget = entry.target.querySelector(".type-target");
+            if (titleTarget) {
+              typeSectionTitle(titleTarget);
+            }
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.2 });
 
-      reveals.forEach((el) => observer.observe(el));
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     });
   </script>
 
