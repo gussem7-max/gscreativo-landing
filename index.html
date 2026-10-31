@@ -1,12 +1,85 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GS Creativo</title>
+  <title>GS Creativo | Desarrollo Web de Alto Nivel</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            darkbg: '#030712',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body style="background-color: #0f172a; color: white; font-family: sans-serif; text-align: center; padding-top: 50px;">
-  <h1>GS Creativo - Próximamente</h1>
-  <p>Sitio en construcción para desarrollo web de alto nivel.</p>
+<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- Header / Navbar -->
+  <header class="w-full border-b border-slate-800/80 backdrop-blur-md bg-darkbg/80 fixed top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- Espacio para tu logo -->
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-400 p-[2px] flex items-center justify-center">
+          <div class="h-full w-full bg-slate-950 rounded-[10px] flex items-center justify-center font-bold text-lg text-white">GS</div>
+        </div>
+        <span class="font-extrabold tracking-wider text-lg bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">GS CREATIVO</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+        <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+        <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+        <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+      </nav>
+      <a href="#contacto" class="bg-white text-slate-950 font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+        Conversemos
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-grow flex items-center justify-center pt-32 pb-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      
+      <!-- Badge de disponibilidad -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Disponible para nuevos proyectos web
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+        Desarrollo web con <br>
+        <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Creamos experiencias digitales rápidas, modernas y optimizadas. Especialistas en arquitecturas robustas y código limpio.
+      </p>
+
+      <!-- Botones de acción -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-medium px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
+          Iniciar Proyecto
+        </a>
+        <a href="#proyectos" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-medium px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all">
+          Ver Trabajos
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+    <p>© 2026 GS Creativo. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
