@@ -26,8 +26,6 @@
   <header class="w-full border-b border-slate-800/80 backdrop-blur-md bg-darkbg/80 fixed top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <!-- Logo en Imagen (Si subes logo.png a tu repo, cambia la ruta aquí) -->
-        <!-- <img src="logo.png" alt="GS Creativo Logo" class="h-10 w-auto"> -->
         <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-400 p-[2px] flex items-center justify-center shadow-lg shadow-purple-500/20">
           <div class="h-full w-full bg-slate-950 rounded-[10px] flex items-center justify-center font-bold text-lg text-white">GS</div>
         </div>
@@ -44,31 +42,54 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section con Terminal Animada -->
   <section class="flex-grow flex items-center justify-center pt-36 pb-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-8">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Disponible para nuevos proyectos web
+      <!-- Columna Izquierda: Textos y CTAs -->
+      <div class="text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Disponible para nuevos proyectos web
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+          Desarrollo web con <br>
+          <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-400 mb-8 leading-relaxed">
+          Especialista en arquitecturas robustas, integraciones a medida y plataformas optimizadas para maximizar rendimiento.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20 text-center">
+            Iniciar Proyecto
+          </a>
+          <a href="#portafolio" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all text-center">
+            Ver Trabajos
+          </a>
+        </div>
       </div>
 
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-        Desarrollo web con <br>
-        <span class="bg-gradient-to-r from-purple-400 via-red-400 to-yellow-400 bg-clip-text text-transparent">precisión y alto nivel.</span>
-      </h1>
-
-      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Especialista en arquitecturas robustas, integraciones a medida y plataformas optimizadas para maximizar conversión y velocidad.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contacto" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-red-600 text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all shadow-xl shadow-purple-600/20">
-          Iniciar Proyecto
-        </a>
-        <a href="#portafolio" class="w-full sm:w-auto bg-slate-900 border border-slate-800 text-slate-300 font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:text-white transition-all">
-          Ver Trabajos
-        </a>
+      <!-- Columna Derecha: Consola / Terminal con Efecto de Escritura -->
+      <div class="w-full rounded-2xl bg-cardbg border border-slate-800 shadow-2xl overflow-hidden font-mono text-sm">
+        <!-- Barra superior de la terminal -->
+        <div class="bg-slate-900/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+          </div>
+          <span class="text-xs text-slate-500">gscreativo-terminal ~ bash</span>
+        </div>
+        <!-- Cuerpo de código con efecto máquina de escribir -->
+        <div class="p-6 text-slate-300 space-y-3 min-h-[220px]">
+          <p class="text-slate-500">// Inicializando arquitectura...</p>
+          <p class="text-purple-400">$ npx gscreativo-cli init</p>
+          <p class="text-slate-300">> Configurando stack moderno...</p>
+          <p class="text-emerald-400" id="typing-text"></p><span class="animate-pulse text-purple-400">▋</span>
+        </div>
       </div>
 
     </div>
@@ -77,58 +98,42 @@
   <!-- Servicios / Bento Grid Section -->
   <section id="servicios" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/40">
     <div class="max-w-6xl mx-auto">
-      
       <div class="text-center mb-16">
         <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Especialidades</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-white">Soluciones Digitales a Medida</p>
       </div>
 
-      <!-- Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Tarjeta 1: WordPress & WooCommerce -->
         <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">⚡</div>
           <h3 class="text-xl font-bold text-white mb-3">WordPress & WooCommerce</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Implementaciones personalizadas, maquetación avanzada con Elementor y optimización extrema de rendimiento.
-          </p>
+          <p class="text-slate-400 text-sm leading-relaxed">Implementaciones personalizadas, maquetación avanzada y optimización extrema de rendimiento.</p>
         </div>
 
-        <!-- Tarjeta 2: Aplicaciones Web Full-Stack -->
         <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
           <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl mb-6 group-hover:scale-110 transition-transform">💻</div>
           <h3 class="text-xl font-bold text-white mb-3">Desarrollo Full-Stack</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Sistemas web dinámicos con arquitecturas modernas en Node.js, Express, PostgreSQL y frontend responsivo.
-          </p>
+          <p class="text-slate-400 text-sm leading-relaxed">Sistemas web dinámicos con Node.js, Express, bases de datos y frontend responsivo.</p>
         </div>
 
-        <!-- Tarjeta 3: E-Learning & LMS -->
         <div class="p-8 rounded-2xl bg-cardbg border border-slate-800 hover:border-slate-700 transition-all shadow-xl group">
           <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6 group-hover:scale-110 transition-transform">🎓</div>
-          <h3 class="text-xl font-bold text-white mb-3">Plataformas EduControl & LMS</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Plataformas educativas integradas con LearnDash, gestión de roles de usuarios y paneles administrativos.
-          </p>
+          <h3 class="text-xl font-bold text-white mb-3">Plataformas LMS & EduControl</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Plataformas educativas integradas con LearnDash y gestión avanzada de usuarios.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Portafolio / Proyectos Destacados -->
+  <!-- Portafolio / Proyectos -->
   <section id="portafolio" class="py-20 px-6 border-t border-slate-800/60">
     <div class="max-w-6xl mx-auto">
-      
       <div class="text-center mb-16">
         <h2 class="text-xs font-bold uppercase tracking-widest text-red-400 mb-3">Casos de Éxito</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-white">Proyectos Recientes</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Proyecto 1 -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group">
           <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
             <span class="text-4xl font-black text-slate-700 group-hover:text-purple-400 transition-colors">PROJECT #1</span>
@@ -140,7 +145,6 @@
           </div>
         </div>
 
-        <!-- Proyecto 2 -->
         <div class="rounded-2xl bg-cardbg border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group">
           <div class="h-48 bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center border-b border-slate-800">
             <span class="text-4xl font-black text-slate-700 group-hover:text-red-400 transition-colors">PROJECT #2</span>
@@ -151,21 +155,15 @@
             <span class="inline-block bg-slate-900 border border-slate-800 text-xs text-slate-300 px-3 py-1 rounded-full">Node.js & Express</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Contacto / CTA -->
+  <!-- Contacto -->
   <section id="contacto" class="py-20 px-6 border-t border-slate-800/60 bg-slate-950/60">
     <div class="max-w-3xl mx-auto text-center">
-      
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">
-        ¿Tienes un proyecto en mente?
-      </h2>
-      <p class="text-slate-400 mb-10 text-lg">
-        Transformemos tu idea en un producto web funcional y atractivo.
-      </p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">¿Tienes un proyecto en mente?</h2>
+      <p class="text-slate-400 mb-10 text-lg">Transformemos tu idea en un producto web funcional y atractivo.</p>
 
       <form class="space-y-4 text-left max-w-lg mx-auto mb-10">
         <div>
@@ -184,7 +182,6 @@
           Enviar Mensaje
         </button>
       </form>
-
     </div>
   </section>
 
@@ -192,6 +189,44 @@
   <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
     <p>© 2026 GS CREATIVO. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Script para el efecto de máquina de escribir -->
+  <script>
+    const phrases = [
+      "Optimizing performance: 100%...",
+      "Deploying to Vercel production...",
+      "Building high-level web solutions...",
+      "Ready for next project code..."
+    ];
+    let currentPhrase = 0;
+    let currentChar = 0;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeEffect() {
+      if (currentChar < phrases[currentPhrase].length) {
+        typingElement.textContent += phrases[currentPhrase].charAt(currentChar);
+        currentChar++;
+        setTimeout(typeEffect, 50);
+      } else {
+        setTimeout(eraseEffect, 2000);
+      }
+    }
+
+    function eraseEffect() {
+      if (currentChar > 0) {
+        typingElement.textContent = phrases[currentPhrase].substring(0, currentChar - 1);
+        currentChar--;
+        setTimeout(eraseEffect, 30);
+      } else {
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+        setTimeout(typeEffect, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeEffect, 1000);
+    });
+  </script>
 
 </body>
 </html>
