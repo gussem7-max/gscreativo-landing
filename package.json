@@ -6,6 +6,7 @@
     "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "resend": "^4.0.0"
   },
   "devDependencies": {
