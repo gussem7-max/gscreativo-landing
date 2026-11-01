@@ -10,10 +10,10 @@
   <link rel="canonical" href="https://gscreativo.com/">
   <meta name="theme-color" content="#9333ea">
 
-  <!-- ===== FAVICON (SVG embebido, no necesitas archivo extra) ===== -->
+  <!-- ===== FAVICON ===== -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='%23ffffff'%3EGS%3C/text%3E%3C/svg%3E">
 
-  <!-- ===== OPEN GRAPH (WhatsApp, Facebook, LinkedIn) ===== -->
+  <!-- ===== OPEN GRAPH ===== -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gscreativo.com/">
   <meta property="og:title" content="GS CREATIVO | Desarrollo Web & Soluciones Digitales">
@@ -24,13 +24,13 @@
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="GS CREATIVO">
 
-  <!-- ===== TWITTER / X CARD ===== -->
+  <!-- ===== TWITTER / X ===== -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="GS CREATIVO | Desarrollo Web & Soluciones Digitales">
   <meta name="twitter:description" content="Sitios web, e-commerce, LMS y apps móviles de alto nivel.">
   <meta name="twitter:image" content="https://gscreativo.com/og-image.png">
 
-  <!-- ===== DATOS ESTRUCTURADOS (Google te entiende como negocio) ===== -->
+  <!-- ===== DATOS ESTRUCTURADOS ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,9 +43,27 @@
   }
   </script>
 
-<link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    /* ...deja aquí tu bloque <style> actual tal cual... */
+    /* Animaciones de Scroll Reveal (GPU-friendly) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+
+    /* Perspectiva 3D para los mockups (NO son clases de Tailwind) */
+    .perspective-container { perspective: 1000px; }
+    .phone-3d { transform: rotateY(-16deg) rotateX(8deg) rotateZ(2deg); }
+    .dashboard-3d { transform: rotateY(12deg) rotateX(6deg); }
   </style>
 </head>
 <body class="bg-lightbg text-bodytext font-sans antialiased selection:bg-purple-600 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
