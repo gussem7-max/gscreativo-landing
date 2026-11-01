@@ -312,7 +312,7 @@
     </div>
   </section>
 
-<!-- Portafolio / Proyectos Recientes (Modo Claro) -->
+<!-- Portafolio / Proyectos Recientes -->
 <section id="portafolio" class="py-20 px-6 bg-white relative">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-16 reveal">
@@ -322,10 +322,13 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
       <!-- Proyecto 1: GlobalFoto (SaaS de fotografía) -->
-      <a href="https://www.globalfotoapp.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 hover:shadow-xl transition-all duration-300 group reveal delay-100 shadow-lg shadow-slate-100 flex flex-col justify-between">
-        <div class="relative h-56 bg-gradient-to-br from-purple-900 via-slate-900 to-indigo-950 flex items-center justify-center p-6 overflow-hidden">
+      <a href="https://www.globalfotoapp.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 hover:shadow-xl transition-all duration-300 group reveal delay-100 shadow-lg shadow-slate-100 flex flex-col">
+        <div class="relative h-56 flex items-center justify-center p-6 overflow-hidden shrink-0">
+          <img src="/globalfoto-banner.webp" alt="GlobalFoto - Plataforma SaaS de fotografía" loading="lazy" decoding="async"
+               class="absolute inset-0 w-full h-full object-cover object-center">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-900/70 via-slate-900/60 to-indigo-950/70"></div>
           <div class="relative z-10 text-center">
             <span class="text-2xl sm:text-3xl font-black tracking-widest group-hover:scale-105 transition-transform duration-300 block">Global<span class="bg-gradient-to-r from-fuchsia-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent">Foto</span></span>
             <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-purple-500/30 text-purple-200 border border-purple-400/30">
@@ -333,23 +336,28 @@
             </span>
           </div>
         </div>
-        <div class="p-6">
+        <div class="p-6 flex flex-col flex-grow">
           <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">GlobalFoto</h3>
           <p class="text-slate-600 text-sm mb-6 leading-relaxed">Plataforma SaaS que permite al fotógrafo crear eventos, subir fotos con marca de agua automática, compartir una galería pública con verificación por selfie y vender por selección múltiple o paquete, cobrando vía Pago Móvil, Nequi y Zinli con conciliación automática de pagos.</p>
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Node.js</span>
-            <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Express</span>
-            <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">PostgreSQL</span>
-            <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">face-api.js</span>
+          <div class="mt-auto">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Node.js</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">Express</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">PostgreSQL</span>
+              <span class="bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 px-3 py-1 rounded-full">face-api.js</span>
+            </div>
+            <div class="mt-3 text-[10px] font-mono text-slate-400 leading-relaxed"><span class="text-slate-500 font-semibold">Stack &amp; infra:</span> JWT · sharp · QR · JS vanilla · Tailwind · AWS S3 · Resend · Render · MacroDroid</div>
+            <span class="block mt-4 text-[11px] font-mono text-purple-600 group-hover:underline">globalfotoapp.com ↗</span>
           </div>
-          <div class="mt-3 text-[10px] font-mono text-slate-400 leading-relaxed"><span class="text-slate-500 font-semibold">Stack &amp; infra:</span> JWT · sharp · QR · JS vanilla · Tailwind · AWS S3 · Resend · Render · MacroDroid</div>
-          <span class="block mt-4 text-[11px] font-mono text-purple-600 group-hover:underline">globalfotoapp.com ↗</span>
         </div>
       </a>
 
       <!-- Proyecto 2: Noemí Maizo (marca personal & formación) -->
-      <a href="https://noemimaizo.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-blue-400 hover:shadow-xl transition-all duration-300 group reveal delay-200 shadow-lg shadow-slate-100 flex flex-col justify-between">
-        <div class="relative h-56 bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 flex items-center justify-center p-6 overflow-hidden">
+      <a href="https://noemimaizo.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-blue-400 hover:shadow-xl transition-all duration-300 group reveal delay-200 shadow-lg shadow-slate-100 flex flex-col">
+        <div class="relative h-56 flex items-center justify-center p-6 overflow-hidden shrink-0">
+          <img src="/noemi-banner.webp" alt="Noemí Maizo - Marca Personal y Formación" loading="lazy" decoding="async"
+               class="absolute inset-0 w-full h-full object-cover object-center">
+          <div class="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-indigo-950/60 to-blue-900/70"></div>
           <div class="relative z-10 text-center">
             <span class="text-2xl sm:text-3xl font-black tracking-widest group-hover:scale-105 transition-transform duration-300 block">Noemí <span class="bg-gradient-to-r from-amber-200 via-yellow-200 to-orange-200 bg-clip-text text-transparent">Maizo</span></span>
             <span class="inline-block mt-3 px-3 py-1 rounded-full text-[10px] font-semibold bg-blue-500/30 text-blue-100 border border-blue-400/30">
@@ -357,7 +365,7 @@
             </span>
           </div>
         </div>
-        <div class="p-6">
+        <div class="p-6 flex flex-col flex-grow justify-end">
           <h3 class="text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">Noemí Maizo</h3>
           <p class="text-[11px] font-semibold uppercase tracking-wide text-slate-500 mb-3">Salmista · Autora · Coach cristiana · Formadora</p>
           <p class="text-slate-600 text-sm mb-6 leading-relaxed">Presencia web de marca personal que reúne Palabra, música y formación en un solo lugar: acompañar el caminar con Dios y formar salmistas desde su identidad y propósito, con una identidad visual serena y acogedora.</p>
